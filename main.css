@@ -1,0 +1,327 @@
+html {
+    scroll-behavior: smooth;
+  }
+      body {
+        margin: 0px;
+      padding: 0px;
+      height: 2000px;
+      background-color: #F0F0F0;
+      font-family: 'Rubik', sans-serif;
+  }
+  header {
+    height: 657px;
+    
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    
+  }
+  
+  .section-1 {
+      
+      height: 412px;
+      margin: 0px;
+      padding: 0px;
+      position: relative;
+  }
+  
+  
+  .section-2{
+    height: 396px;
+      background-color: #30ac6e;
+      margin: 0px;
+      padding: 0px;
+      position: relative;
+    
+  
+  }
+  
+  .section-3{
+    height: 829px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    
+  
+  }
+  
+  footer{
+    height: 150px;
+      background-color: #1a1818;
+      margin: 0px;
+      padding: 0px;
+      position: relative;
+  
+  }
+  
+  
+  header h1{
+      font-family: 'Righteous', cursive;
+      /* text-align: center; */
+      font-size: 90px;
+      position: absolute;
+      margin: 20px 490px;
+      top: 10%;
+      
+  }
+  
+  
+  .header-content{
+      font-family: 'Rubik', sans-serif;
+      text-align: center;
+      font-size: 19px;
+      font-weight: lighter;
+      position: absolute;
+      top: 35%;
+      /* left: 19%; */
+      /* margin: 10px 290px; */
+      padding: 10px 462px;
+      display: block;
+      line-height: 1.6;
+  }
+  
+  .skill{
+    right: 20%;
+      bottom: 10%;
+      position: absolute;
+      display: inline;
+      }
+  
+  .skill img{
+    width: 35px;
+      height: 40px;
+      }
+  
+  .skill a{
+    margin-right: 80px;
+  } 
+  
+  .section-1 h2{
+    font-family: 'Sora', sans-serif;
+      font-size: 43px;
+      position: absolute;
+      right: 19%;
+      top: 5%;
+  }
+  
+  .text1{
+    font-family: 'Rubik', sans-serif;
+      font-size: 16px;
+      position: absolute;
+      color: rgb(59, 59, 59);
+      width: 32%;
+      line-height: 1.3;
+  }
+  
+  .sec-1butn{
+    position: absolute;
+      
+      background: #000000;
+      color: #FFFFFF;
+      display: inline-block;
+      border-radius: 8px;
+      padding: 14px 18px 16px;
+      /* padding: 10px 5px; */
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1;
+      border: 0;
+      cursor: pointer;
+      /* -webkit-user-select: none; */
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      /* -webkit-transition: -webkit-transform 200ms,background 200ms; */
+      /* -webkit-transition: transform 200ms,background 200ms; */
+      transition: transform 200ms,background 200ms;
+      background: transparent;
+      color: #000000;
+      border: 3px solid #000000;
+      text-decoration: none;
+  }
+  
+  #sec-1git{
+    position: absolute;
+      
+      color: rgb(129, 135, 143);
+      font-size: 20px;
+      text-align: center;
+      text-decoration: none;
+  }
+  
+  .section-2 h2{
+    font-family: 'Sora', sans-serif;
+      font-size: 52px;
+      width: 24%;
+      position: absolute;
+      left: 5%;
+      line-height: 1;    
+  }
+  
+  .section-2 h3{
+    font-family: 'Sora', sans-serif;
+      
+      position: absolute;
+      left: 5%;
+      line-height: 1.3;    
+  }
+  
+  .text2{
+    font-family: 'Rubik', sans-serif;
+      font-size: 16px;
+      position: absolute;
+      color: black;
+      left: 5%;
+      top: 53%;
+      width: 30%;
+      line-height: 1.3;
+  }
+  
+  
+  .sec2-pic {
+    
+      /* height: 50vh; */
+      background: url(http:unsplash.it/400x300);
+      /* background-size: cover; */
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 68%;
+      left: 12%;
+  }
+  
+  .arrw {
+    position: absolute;
+      top: 30%;
+      left: 60%;
+      height: 43px;
+      width: 82px;
+      background: white;
+  }
+  
+  .arrw:before {
+    content: "";
+    width: 25px;
+    height: 2px;
+    background: slategray;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    right: 24px;
+    transition: all 0.3s ease;
+  }
+  
+  .arrw:hover:before {
+    right: 34px;
+    width: 35px;
+  }
+  
+  .arrw:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-color: transparent transparent transparent #000000;
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    right: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .arrw:hover:after {
+    right: 34px;
+    right: 30px;
+  }
+  
+  .image-icon{
+    position: absolute;
+      top: 10%;
+      right: 15%;
+  }
+  
+  .bttn-icon{
+    position: absolute;
+      background-color: white;
+      border: none;
+      color: black;
+      padding: 20px 65px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      margin: 4px 2px;
+      cursor: pointer;
+      top: 67%;
+  }
+  
+  .section-3 h2{
+    font-family: 'Sora', sans-serif;
+      font-size: 43px;
+      position: absolute;
+      right: 19%;
+      top: 10%;
+  }
+  
+  
+  
+  .section-4 h2{
+    font-family: 'Sora', sans-serif;
+      font-size: 43px;
+      position: absolute;
+      top: 15%;
+      position: absolute;
+      left: 5%;
+  }
+  
+  .vl {
+    margin-left: 50%;
+    
+      width: 1px;
+      height: 90%;
+      top: 5%;
+      border-left: 1px solid gray;
+     
+      position: absolute;
+  }
+  
+  footer h3{
+    position: absolute;
+      color: white;
+      font-family: 'Sora', sans-serif;
+      font-weight: lighter;
+      top: 15%;
+      left: 25%;
+      font-size: 15px;
+      margin: 0;
+  }
+  
+  .link-info{
+    position: absolute;
+      width: 50%;
+      left: 5%;
+      height: 100%;
+  }
+  
+  .link-info a{
+    position: absolute;
+      top: 39%;
+      font-size: 14px;
+    color: white;
+  }
+  
+  .contact-info{
+    position: absolute;
+      width: 50%;
+      left: 55%;
+      height: 100%;
+      font-size: 16px;
+    color: white;
+  }
+  
+  .contact-info a{
+    position: absolute;
+      top: 38%;
+      left: 24%;
+    
+  }
