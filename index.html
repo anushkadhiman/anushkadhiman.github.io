@@ -10,110 +10,148 @@
 <title>Anushka Dhiman</title>
 <meta charset="utf-8">
 <style>
-    body{
-        background-color: white;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-
-    h1{
-        font-family: 'Gill Sans MT';
-        left: 10%;
-        top: 18%;
-        font-size: 50px; 
-        position: absolute;
-        font-weight: lighter;
-        color: crimson;
-    }
-
-    h2{
-        font-family: 'Trebuchet MS';
-        left: 10%;
-        top: 25%;
-        font-size: 50px; 
-        position: absolute;
-        font-weight: bolder;
-        color: crimson;
-    }
-
-    .para{
-        font-family: Calibri;
-        left: 10%;
-        top: 38%;
-        position: absolute;
-        width: 470px;
-    }
-
-    h3{
-        font-size: 17px;
-        color: black;
-    }
-
-
-    .work{
-        left: 10%;
-    top: 56%;
-    width: 12%;
-    height: 5%;
-    position: absolute;
-    display: inline;
-    }
-
-
-   
-    .contact{ 
-    left: 10%;
-    bottom: 10%;
-    position: absolute;
-    width: 19%;
-    height: 7%;
-    }
-
-    .skill{
-        right: 5%;
-        bottom: 10%;
-        position: absolute;
-        display: inline;
-    }
-
-    img{
-        width:30px;
-        height:30px; 
-        margin-right:12px;
-    }
-
+    * {
+  box-sizing: border-box;
   
-    a:link {
-        color:black;
-        text-decoration-line: none;
-        pointer-events: visible;
-        position: absolute;
-        font-size: 16px;
+}
+
+body{
+    background-color: rgb(255, 251, 251);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   
+}
+
+.row{
+    position: relative;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.header {
+    padding: 5px;
+    position: absolute;
+    line-height: 0.7;
+    width: 30%;
+    left: 5%;
+    top: 113px;
+}
+
+.para{
+    position: absolute;
+    padding: 5px;
+    font-family: Calibri;
+    width: 30%;
+    left: 5%;
+    top: 225px;
     }
 
-    a:hover {
-        color: rgb(99, 97, 97);
+.work{
+    position: absolute;
+    padding: 5px;
+    width: 12%;
+    left: 5%;
+    top: 358px;
     }
+
+.contact{ 
+    position: absolute;
+    padding: 5px;
+    left: 5%;
+    width: 19%;
+    top: 526px;
+    }
+
+.skill{
+    position: absolute;    
+    padding: 5px;
+    width: 30%;
+    right: 5%;
+    top: 526px;   
+    }
+
+img{  
+    width:30px;
+    height:30px; 
+    margin-right:12px;
+    }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .header, .para, .work{
+    width: 100%;
+  }
+
+  .contact {
+    width: 100%;
+    top: 483px;
+  }
+
+  .skill {
+    width: 100%;
+    top: 550px;
+    left: 5%;
+  }
+
+}
+
+
+h1{
+    font-family: 'Gill Sans MT';
+    font-size: 50px; 
+    font-weight: lighter;
+    color: crimson;
+}
+
+h2{
+    font-family: 'Trebuchet MS';
+    font-size: 50px; 
+    font-weight: bolder;
+    color: crimson;
+}
+
+h3{
+    font-size: 17px;
+    color: black;
+}
+
+a:link {
+    color:black;
+    text-decoration-line: none;
+    pointer-events: visible;
+    font-size: 16px;
+}
+
+a:hover {
+    color: rgb(99, 97, 97);
+}
 
 </style>
 </head>
 <body>
-    <h1>Hi, I'm</h1>
-    <h2>Anushka Dhiman</h2>
+    <div class="row">
+    <div class="header">
+        <h1>Hi, I'm</h1>
+        <h2>Anushka Dhiman</h2>
+    </div>
+    
     <div class='para'>
     <h3>A Data Scientist based in Delhi, India.</h3>
     <h3 style ="font-size: 15px; font-weight: lighter;">Explore and analyse the data, build models using machine learning and deep learning algorithms to solve challenging business problems.</h3>
     </div>
     <div class="work">
-       <a href="porfolio.html"><button class="w3-button w3-black" style='margin-right:18px'>Portfolio</button></a> 
+       <a href="porfolio.html"><button class="w3-button w3-black">Portfolio</button></a> 
         
-        <a style= "left: 60%;margin-top: 5%;font-size: 18px;" href="image/AnushkaDhiman.pdf">Resume</a>
+        <a style= "font-size: 18px;" href="image/AnushkaDhiman.pdf">Resume</a>
     </div>
     
     <div class="contact">
         <a href="https://www.linkedin.com/in/anushka-dhiman-93a6a918b/">
-            <button class="w3-button w3-blue" style='margin-right:18px'>Connect on LinkedIn</button>
+            <button class="w3-button w3-blue">Connect on LinkedIn</button>
     </a>
-    <address><a href="mailto:dhiman.anushka23@gmail.com" style='font-size: 16px;left: 68%;bottom: 32%;font-style: normal;'>EMAIL ME</a></address>
+    <a href="mailto:dhiman.anushka23@gmail.com" style='font-size: 16px;font-style: normal;'>EMAIL ME</a>
     </div>
 
     <div class="skill">
@@ -126,8 +164,9 @@
         <a><img src="image/docker.png"></a>
         <a><img src="image/sql.jpg"></a>
 
-   
     </div>  
+
+</div>
     
 </body>
 
