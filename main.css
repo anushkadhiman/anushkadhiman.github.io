@@ -353,21 +353,19 @@ header {
     color: white;
   }
   
-  .contact-info a{
+  .contact-info a {
     position: absolute;
-    top: 38%;
+    top: 39%;
     left: 25%;
-    
-  }
+}
 
   footer .icon-git{
-    position: absolute;
+   
     top: 36%;
     font-size: 20px;
     color: white;
     left: 27%;
   }
-
   .foot-git{
     position: absolute;
     top: 39%;
@@ -376,13 +374,14 @@ header {
     color: white;
   }
   
+  
   .foot-med{
-    position: absolute;
+    
     left: 42%;
   }
 
   .foot-med img{
-    position: absolute;
+    
     width: 11%;
   }
 
@@ -476,11 +475,11 @@ header {
     }
     
    
-    .icon-bttn{
+    .icon-bttn {
       position: absolute;
       top: 70%;
-      right: 16%;
-    }
+      right: 32%;
+  }
     .bttn-icon{
       background-color: white;
       border: none;
@@ -665,11 +664,11 @@ header {
     }
     
    
-    .icon-bttn{
+    .icon-bttn {
       position: absolute;
       top: 70%;
-      right: 16%;
-    }
+      right: 32%;
+  }
     .bttn-icon{
       background-color: white;
       border: none;
@@ -797,8 +796,8 @@ header {
      }
 
      .skill img {
-      width: 10px;
-      height: 12px;
+      width: 12px;
+      height: 16px;
       margin-right: 32px;
   }
 
@@ -806,12 +805,12 @@ header {
     font-family: 'Rubik', sans-serif;
     position: absolute;
     color: rgb(59, 59, 59);
-    width: 100%;
+    width: 95%;
     line-height: 1.5;
     right: 0%;
     /* right: 15%; */
     top: 5%;
-    /* padding: 10px; */
+    padding: 10px;
 }
 
 .links {
@@ -949,13 +948,14 @@ p {
 
 .det {
   font-family: 'Rubik', sans-serif;
-  position: absolute;
-  color: rgb(59, 59, 59);
-  width: 100%;
-  line-height: 1.5;
-  right: 0%;
-  top: 24%;
-  padding: 5px;
+    position: absolute;
+    color: rgb(59, 59, 59);
+    width: 95%;
+    line-height: 1.5;
+    right: 0%;
+    left: 0%;
+    top: 24%;
+    padding: 10px;
 }
 
 .links-det {
@@ -1026,14 +1026,14 @@ footer .icon-git{
   color: white;
 }
 
-.foot-med{
-  position: absolute;
+a .foot-med{
+  
   left: 25%;
   top: 60%;
 }
 
 .foot-med img{
-  position: absolute;
+  
   width: 22%;
 }
 
@@ -1044,3 +1044,4 @@ footer .icon-git{
 
 
 }
+
