@@ -1,0 +1,45 @@
+[
+  {
+    "listing": "/insights.html",
+    "items": [
+      "/insights/DeepLearning/convolution.html",
+      "/insights/DeepLearning/feedforward.html",
+      "/insights/DeepLearning/perceptron.html",
+      "/insights/MachineLearningAlgorithm/decision_tree.html",
+      "/insights/MachineLearningAlgorithm/knn.html",
+      "/insights/MachineLearningAlgorithm/k_means.html",
+      "/insights/MachineLearningAlgorithm/k_means_2.html",
+      "/insights/MachineLearningAlgorithm/k_nearest_neighbors.html",
+      "/insights/MachineLearningAlgorithm/linear_regression.html",
+      "/insights/MachineLearningAlgorithm/linear_regression_md.html",
+      "/insights/MachineLearningAlgorithm/logistic_regression.html",
+      "/insights/MachineLearningAlgorithm/logistic_regression_md.html",
+      "/insights/MachineLearningAlgorithm/numpy_practice.html",
+      "/insights/MachineLearningAlgorithm/svm.html",
+      "/insights/MachineLearningAlgorithm/ww_classifier.html",
+      "/insights/StatisticsandProbability/02. Probability and Rules of Probability.html",
+      "/insights/StatisticsandProbability/03. Bayes Theorem.html",
+      "/insights/StatisticsandProbability/04. Variables and Data types.html",
+      "/insights/StatisticsandProbability/05. Probability distributions.html",
+      "/insights/StatisticsandProbability/06. Measures of Central Tendency.html",
+      "/insights/StatisticsandProbability/07. Measures of Variability.html",
+      "/insights/StatisticsandProbability/08.  Central Limit Theorem.html",
+      "/insights/StatisticsandProbability/09. Sampling and Sampling errors.html",
+      "/insights/StatisticsandProbability/10. Hypothesis Testing.html",
+      "/insights/StatisticsandProbability/11. Parametric Tests.html",
+      "/insights/StatisticsandProbability/12. Z-test.html",
+      "/insights/StatisticsandProbability/13. t-test.html",
+      "/insights/StatisticsandProbability/14. ANOVA - Analysis of Variance.html",
+      "/insights/StatisticsandProbability/15. Chi-Square Test for Independence and Goodness of Fit.html",
+      "/insights/StatisticsandProbability/16. Effect Size and Statistical Power.html",
+      "/insights/StatisticsandProbability/17.Statistical tests (Summarized).html",
+      "/insights/StatisticsandProbability/01. Permutation and Combinations.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/AIResearchHighlightsIn2024/index.html"
+    ]
+  }
+]

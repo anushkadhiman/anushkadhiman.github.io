@@ -1,7 +1,16 @@
 ---
-title: "my-quarto-site"
+title: "Learn, explore, and connect."
+image: index.jpg
+subtitle: "Why SOTA Insights?"
 ---
 
-This is a Quarto website.
+SOTA Insights is more than a blog; it's a platform for curious minds. Whether you’re diving into the complexities of transformers, exploring NLP applications, or delving into computer vision, my aim is to guide you with well-explained articles, real-world use cases, and hands-on examples.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+At SOTA Insights, you'll find:
+
+1. [Insights](docs/insights.html): Articles and tutorials on SOTA algorithms and architectures, complete with code and visualizations.
+
+2. [Blogs](docs/blogs.html): Updates on the latest trends, breakthroughs, and technologies in AI.
+
+
+SOTA Insights is just the beginning of my journey to explore, learn, and contribute to the AI ecosystem. I hope you’ll join me in this mission.

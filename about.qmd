@@ -1,7 +1,23 @@
 ---
 title: "About"
+about:
+  template: solana
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://x.com/dhiman_anushka
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/anushka-dhiman-93a6a918b/
+    - icon: github
+      text: Github
+      href: https://github.com/anushkadhiman
 ---
+
+<!--![Portrait of Anushka](./images/anushka.jpg){:height="300px" width="300px"}-->
 
 Hi, I’m Anushka Dhiman, a Computer Vision Engineer and an AI enthusiast interested in the area of AI driven application and researches. I have experience in developing cutting-edge AI systems, including applications in computer vision, natural language processing, and generative AI. I’ve worked on projects such as AI based monitoring and security system in Video Analytics and Survallience.
 
 My journey into AI has been fueled by a passion for continuous learning, exploring groundbreaking technologies, and sharing knowledge to empower others in the field.
+
+

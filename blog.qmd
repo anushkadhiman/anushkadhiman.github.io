@@ -1,0 +1,17 @@
+---
+title: "Blog"
+subtitle: "Updates on the latest trends, breakthroughs, and technologies in AI"
+listing:
+  contents: blog
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, subtitle, author]
+  feed:
+    type: partial
+page-layout: full
+title-block-banner: false
+
+---

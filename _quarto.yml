@@ -3,22 +3,46 @@ project:
   output-dir: docs
 
 website:
+  favicon: images/favicon-32x32.png
   title: "SOTA Insights"
   navbar:
     right:
-      - href: index.qmd
-        text: Home
+      - href: insights.qmd
+        text: Insights
       - href: blog.qmd
         text: Blog
       - href: about.qmd
         text: About
+      - icon: twitter
+        href: https://x.com/dhiman_anushka
+      - icon: linkedin
+        href: https://www.linkedin.com/in/anushka-dhiman-93a6a918b/
+      - icon: github
+        href: https://github.com/anushkadhiman
+
+  page-footer:
+    right: |
+    left: "This website blog is built with [Quarto](https://quarto.org/)."
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
     toc: true
+    toc-depth: 2
+    toc-expand: 2
+    toc-title: Contents
+    link-external-icon: true
+    link-external-newwindow: true
+    smooth-scroll: true
+    theme:
+      light: [litera, styles.scss]
+      dark: [darkly, styles-dark.scss]
+    highlight-style: a11y-dark
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    citations-hover: true
+
+execute:
+  freeze: true
 
 editor: visual

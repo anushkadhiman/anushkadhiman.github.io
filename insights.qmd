@@ -1,0 +1,20 @@
+
+---
+title: "Insights"
+subtitle: "Let's explore state-of-the-art machine learning and artificial intelligence models!"
+
+listing:
+  contents: insights
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, subtitle, author]
+  feed:
+    type: partial
+page-layout: full
+title-block-banner: false
+
+---
+
