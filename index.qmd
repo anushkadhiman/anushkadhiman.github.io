@@ -1,10 +1,8 @@
 ---
 title: "Learn, explore, and connect."
-image: index.jpg
-subtitle: "Why SOTA Insights?"
 ---
 
-SOTA Insights is more than a blog; it's a platform for curious minds. Whether you’re diving into the complexities of transformers, exploring NLP applications, or delving into computer vision, my aim is to guide you with well-explained articles, real-world use cases, and hands-on examples.
+[<img src="index.jpg" style="display: block; margin: auto; " width="300"/>](index.jpg)
 
 At SOTA Insights, you'll find:
 

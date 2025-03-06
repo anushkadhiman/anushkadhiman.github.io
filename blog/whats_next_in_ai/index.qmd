@@ -1,0 +1,121 @@
+---
+title: "What’s next in AI: A Guide to 2025"
+date: "2025-01-01"
+author: Anushka Dhiman
+categories: [Artificial Intelligence]
+image: blog2.jpg
+image-alt: "whats_next_in_ai"
+---
+
+While 2024 has been a year of incredible developments in artificial intelligence, and more is to come. From generative AI and large language models (LLMs) to multimodal AI, agentic AI, and quantum AI, we are excited to watch how AI will develop in coming years. Workflows across sectors will be further accelerated by these technologies, bringing about revolutionary change and opening up new opportunities.
+
+As AI develops further, scientists are concentrating on improving fundamental ideas, creating new applications, and resolving the shortcomings of existing models.
+
+The following key fields of AI research are anticipated to have substantial advancements:
+
+## Multimodal AI
+
+Multimodal AI is a type of artificial intelligence that can understand and generate multiple data inputs simultaneously, including text, images, and sound. It is trained on large datasets to learn relationships between different modalities and fuse them effectively. It can perform tasks like image captioning, text-to-image generation, video understanding, human-computer interaction, and robot interaction, offering significant potential for real-world applications.
+
+Here are some examples,
+
+ChatGPT offers multimodal capabilities, allowing users to interact with the chatbot in various ways. Users can upload images as prompts, which the chatbot uses to generate responses. Voice input is also available for hands-free tasks, and responses can be generated in one of five natural-sounding voices. Additionally, ChatGPT Plus and Enterprise users can generate images from text descriptions directly within the ChatGPT interface with the DALL-E GPT.
+
+Google Gemini is gaining popularity in the AI space, in certain areas due to its fresh data. Gemini integrates with various data sources like Google Flights, Maps, Hotels, Workspace, and YouTube. Its dynamic communication with tools like Maps and Hotels allows for real-time updates on queries related to those topics.
+
+### Use Cases:
+
+Personalized Nutrition: The USDA’s MyPlate allows individuals to plan their meals based on various factors such as age, sex, weight, height, and physical activity level. Future plans could include additional data like blood test results, health questionnaires, genotype, or microbiome. Important features need to be identified using large clinical studies with advanced feature selection methods. The USDA Nutritional Penotyping study includes over 5000 variables from self-reporting diet questionnaires and blood tests, and millions from high-throughput “omics” analyses. ML analyses of this data can serve two purposes: developing a mechanistic understanding of the relationship between diet and health and developing personalized nutrition models to predict health effects.
+
+Medical Images: M-LLMs are advanced medical imaging tools that can improve diagnostic accuracy and efficiency in various image modalities like x-rays, MRI scans, CT scans, positron emission tomography scans, ultrasound images, digital pathology slides, and retinal images. These tools provide unique insights into the body’s internal structures, aiding in early disease detection, diagnosis, and monitoring. For example, in radiology, M-LLMs analyze CT and MRI images to identify anomalies and generate automated reports. They also allow annotation and tagging of medical images with keywords, enabling additional analytics applications. In pathology, they interpret tissue sample slides to identify disease markers. In dermatology, they assess skin lesions for early detection of skin cancers.
+
+AI Personalised Nutritions
+
+## Agentic AI
+
+Agentic AI is a form of AI that emphasizes autonomy. This implies that it is capable of making decisions, taking action, and even learning on its own to accomplish particular objectives. It’s similar to having a virtual assistant that can reason, think, and adjust to new conditions without continual guidance.
+
+There are four main phases to agentic AI operation:
+
+Perception: It collects information from its surroundings.
+
+Reasoning: It analyses this information to determine what is happening.
+
+Action: It uses its comprehension to determine what to do.
+
+Learning: It gains knowledge from experience and criticism as it develops and changes throughout time.
+
+Because of this, agentic AI is extremely independent and capable of managing challenging tasks involving logic, problem-solving, and situational adaptation.
+
+### Use Cases:
+
+Healthcare: AI agents can extract important information from massive volumes of patient and medical data to assist physicians in making more educated decisions about patient care. Doctors can concentrate on building relationships with their patients by automating administrative duties and taking clinical notes during patient consultations.
+
+Autonomous cars: In autonomous cars, an agentic AI system not only recognizes objects but also forecasts how other drivers and pedestrians will behave. It makes decisions in real time, plans routes, and avoids barriers using this information. Agentic AI systems exhibit a degree of “intelligent agency” that surpasses data processing by fusing perception and action, giving them a special capability.
+
+Real-Time Threat Detection: Agentic AI systems can detect real-time threats by analyzing video streams to identify anomalies like unauthorized access or unusual movement patterns. They can autonomously recognize trespassers and alert security personnel, integrating object detection and behavioural analysis for accurate and timely interventions.
+
+## Explainable AI
+
+The goal of the developing field of explainable AI is to provide intuitive explanations for AI model behaviour. The intention is to assist users comprehend how an AI model generates results or makes predictions. An AI system whose core operations are hidden from the user is known as an AI black box. The AI model doesn’t give any justification for its decisions.
+
+For instance, you might not understand why an AI model accurately classifies an image. Scientists and engineers dislike “black boxes.” They’re curious about what’s going on within the box. Explainable AI seeks to reveal mysteries. Explainability strategies aid in demonstrating the rationale behind and possibly the process by which the AI model arrived at its conclusion.
+
+Explainable AI techniques, such as Grad-CAM, LIME, and occlusion sensitivity, are useful when using models that are not inherently explainable, such as deep learning models. These techniques help users gain confidence in AI decisions and can be useful when comparing the performance of multiple models. The mapping of important features slightly differs between explainability techniques due to the underlying methodology. LIME approximates complex model behaviour using a simpler model, while Grad-CAM uses gradients of classification score to determine the importance of features in the deep learning model. Occlusion sensitivity computes a map of the change in activation when parts of the input are occluded with a mask.
+
+As AI technology advances, it is increasingly used to solve real-world problems, and explainability techniques are crucial to ensure trust in the decisions of the model and its functionality.
+
+
+### Use Cases:
+
+Optimize Clinical Decision Support: The study aimed to improve alert criteria using explainable artificial intelligence (XAI) approaches. Data was extracted from Vanderbilt University Medical Center alerts from 2019 to 2020, and machine learning models were developed to predict user responses. XAI techniques were applied to generate global and local explanations. The final dataset included 2,991–823 firings with 2689 features. The LightGBM model achieved the highest Area under the ROC Curve, identifying 96 helpful suggestions. A total of 278–807 firings (9.3%) could have been eliminated. Some suggestions also revealed workflow and education issues. The study aims to identify improvements in clinical decision support (CDS) and improve quality by identifying scenarios where CDS alerts are not accepted due to workflow, education, or staffing issues.
+
+## Artificial General Intelligence
+
+While different people have different definitions of artificial general intelligence (AGI), the most significant aspects of it have already been accomplished by the most recent generation of sophisticated AI large language models, including ChatGPT, LLaMA, Gemini and Claude. One of the key limitations of generative AI, often highlighted by researchers, is what’s known as ‘AI hallucinations.’ While these systems are remarkable in generating coherent and contextually appropriate content, there are instances where their outputs can be misleading or outright inaccurate.
+
+It would need human-level comprehension and reasoning to fully resolve hallucinations. Consider this: In order to prevent hallucinations, a system would have to:
+
+Have the ability to achieve various goals and perform tasks in various contexts and environments.
+
+Capable of handling problems and situations different from those anticipated by its creators.
+
+Capable of generalizing knowledge to transfer it across different problems or contexts.
+
+In essence, these qualities are what we refer to as “general intelligence”. However, arbitrary general intelligence is not possible due to realistic resource constraints. Real-world systems may display limited generality but are more efficient at learning certain tasks, making them somewhat biased towards certain goals and environments. It is unlikely that humans manifest a maximal level of general intelligence, even in relation to their evolutionarily adapted goals and environments.
+
+An AI would have attained human-like comprehension and reasoning skills if it could actually overcome hallucinations. By then, we would have something that was close to artificial general intelligence (AGI), not merely a more accurate language model.
+
+### Use Cases:
+
+Smart Homes: The Whisper model has revolutionized speech recognition, delivering exceptional accuracy in multilingual recognition, translation, and language identification. This allows for more intuitive interactions between users and smart home systems, bridging the gap between human language and technology. VALL-E, a text-to-speech synthesis model, uses semi-supervised data to produce personalized, high-quality speech, enhancing communication quality and adaptability. These advancements bring us closer to AGI-powered smart homes that are natural, tailored, and responsive.
+
+Smart Healthcare: AGI technology can be applied to wearable health devices, enabling real-time data processing to detect vital signs anomalies. This technology can prompt interventions and improve patient care. A Smart Healthcare System integrates IoT and AGI, analyzing data for continuous monitoring and disease prediction.
+
+## Quantum AI
+
+Quantum AI summaries a selective approach to leverage artificial intelligence, specifically machine learning techniques, to enhance the entire workflow encompassing quantum algorithm development, experimental design, the identification of near-optimal parameters, the transpilation of quantum circuits, error correction during execution, as well as the calibration and design of quantum devices.
+
+### Use Cases:
+
+Drug Discoveries: Artificial intelligence (AI) combines enhanced methods to make drug discovery and development more cost-effective. It can improve drug approval rates, lower costs, and speed up patient access to medications. Quantum computing (QC) can further benefit drug approval and profitability. Pharma leaders are adopting AI and QC technologies for various stages of drug development. In the next 5–10 years, AI-QC is expected to become standard in the industry. The focus is shifting to scalable solutions addressing larger pharmaceutical issues. Using AI and QC with data analysis will improve understanding of drug processes, streamline experiments, discover new targets, and address pharmaceutical challenges. Developing effective AI-QC strategies can be complex, requiring thorough knowledge of the industry to broaden its applications across the drug life cycle.
+
+AI researchers intend to focus on developing fundamental technologies that increase the efficiency, interpretability, and adaptability of AI systems. There will be a lot of innovation in the field, ranging from AGI and self-supervised learning to quantum computing and AI ethics. As these technologies become more prevalent in daily life, there will also be a greater focus on the problem of bringing AI systems closer to human values and societal demands.
+
+## References:
+
+1. Parr, C.S., Lemay, D.G., Owen, C.L., Woodward-Greene, M.J. and Sun, J., 2021. Multimodal AI to improve agriculture. IT Professional, 23(3), pp.53–57.
+2. Swinckels L, de Keijzer A, Loos B, Applegate R, Kookal K, Kalenderian E, Bijwaard H, Bruers J. A personalized periodontitis risk based on nonimage electronic dental records by machine learning. Journal of Dentistry 2025;153:105469
+3. Erik Pounds. (2024, October 22). What Is Agentic AI?
+4. Ogbu, D., Agentic AI in Computer Vision Domain-Recent Advances and Prospects.
+5. Xu, F., Uszkoreit, H., Du, Y., Fan, W., Zhao, D. and Zhu, J., 2019. Explainable AI: A brief survey on history, research areas, approaches and challenges. In Natural language processing and Chinese computing: 8th cCF international conference, NLPCC 2019, dunhuang, China, October 9–14, 2019, proceedings, part II 8 (pp. 563–574). Springer International Publishing.
+6. Zhang, H. and Ogasawara, K., 2023. Grad-CAM-based explainable artificial intelligence related to medical text processing. Bioengineering, 10(9), p.1070.
+7. Salih, Ahmed M., et al. A perspective on explainable artificial intelligence methods: SHAP and LIME.Advanced Intelligent Systems (2024): 2400304.
+8. Siru Liu, Allison B McCoy, Josh F Peterson, Thomas A Lasko, Dean F Sittig, Scott D Nelson, Jennifer Andrews, Lorraine Patterson, Cheryl M Cobb, David Mulherin, Colleen T Morton, Adam Wright, Leveraging explainable artificial intelligence to optimize clinical decision support, Journal of the American Medical Informatics Association,Volume 31, Issue 4, April 2024, Pages 968–974,
+9. Goertzel, Ben. Artificial general intelligence: concept, state of the art, and future prospects. Journal of Artificial General Intelligence 5.1 (2014): 1.
+10. Dou, Fei, et al. Towards artificial general intelligence (agi) in the internet of things (iot): Opportunities and challenges. arXiv preprint arXiv:2309.07438 (2023).
+11. Wichert, Andreas. Principles of quantum artificial intelligence: quantum problem solving and machine learning. 2020.
+12. Cova, T., Vitorino, C., Ferreira, M., Nunes, S., Rondon-Villarreal, P., Pais, A. (2022). Artificial Intelligence and Quantum Computing as the Next Pharma Disruptors. arXiv preprint arXiv:2309.07438 (2023). In: Heifetz, A. (eds) Artificial Intelligence in Drug Design. Methods in Molecular Biology, vol 2390. Humana, New York, NY.
+
+### Citation:
+Anushka Dhiman. (Jan 1, 2025). What’s next in AI: A Guide to 2025. SOTA Insights Blog: https://anushkadhiman.github.io/blog/whats_next_in_ai

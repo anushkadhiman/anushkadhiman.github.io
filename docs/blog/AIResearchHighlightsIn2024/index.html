@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-27">
+<meta name="author" content="Anushka Dhiman">
+<meta name="dcterms.date" content="2024-12-25">
 
 <title>AI Research Highlights in 2024 – SOTA Insights</title>
 <style>
@@ -136,7 +137,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#learn-more" id="toc-learn-more" class="nav-link active" data-scroll-target="#learn-more">Learn more</a></li>
+  <li><a href="#sora" id="toc-sora" class="nav-link active" data-scroll-target="#sora">Sora</a></li>
+  <li><a href="#phi-3" id="toc-phi-3" class="nav-link" data-scroll-target="#phi-3">Phi-3</a></li>
+  <li><a href="#alphafold-3" id="toc-alphafold-3" class="nav-link" data-scroll-target="#alphafold-3">AlphaFold 3</a></li>
+  <li><a href="#veo-and-imagen-3" id="toc-veo-and-imagen-3" class="nav-link" data-scroll-target="#veo-and-imagen-3">Veo and Imagen 3</a></li>
+  <li><a href="#llama-3" id="toc-llama-3" class="nav-link" data-scroll-target="#llama-3">LLAMA 3</a></li>
+  <li><a href="#sam-2" id="toc-sam-2" class="nav-link" data-scroll-target="#sam-2">SAM 2</a></li>
+  <li><a href="#claudes-sonnet" id="toc-claudes-sonnet" class="nav-link" data-scroll-target="#claudes-sonnet">Claude’s Sonnet</a></li>
+  <li><a href="#gemini-2" id="toc-gemini-2" class="nav-link" data-scroll-target="#gemini-2">Gemini 2</a></li>
   </ul>
 </nav>
     </div>
@@ -155,11 +163,17 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Anushka Dhiman </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 27, 2022</p>
+      <p class="date">December 25, 2024</p>
     </div>
   </div>
   
@@ -171,13 +185,174 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>If you’re curious about Quarto, take a look at Tom Mock’s slide deck from rstudio::conf(2022) where he introduces Quarto, particularly for R Markdown users.</p>
-<p>Tom’s slides can be found at <a href="http://rstd.io/quarto-curious">rstd.io/quarto-curious</a>.</p>
-<section id="learn-more" class="level2">
-<h2 class="anchored" data-anchor-id="learn-more">Learn more</h2>
-<p>See the conference schedule at <a href="https://www.rstudio.com/conference/2022/schedule/">rstudio.com/conference/2022/schedule/</a> for more Quarto talks on Day 2 of the conference!</p>
+<p>In 2024, the emerging field of artificial intelligence is developing more quickly than anyone could have imagined. It produced innovations that have changed industries, safeguard lives, and gone beyond our wildest expectations. From artificial intelligence (AI) that produces hyper-realistic content to emotionally intelligent machines, AI is advancing beyond our previous understanding of technology and challenging everything we believed to be true.</p>
+<p>Let’s dive into the most significant researches in AI this year, revealing how they are transforming industries and altering modern life, creation of a sentient artificial intelligence.</p>
+<section id="sora" class="level2">
+<h2 class="anchored" data-anchor-id="sora">Sora</h2>
+<p><strong>In February 2024, OpenAI introduced Sora, a generative AI model</strong> that converts text to video. The model has the ability to simulate the real environment and is trained to produce videos of realistic or imaginative scenes based on text instructions. Sora stands out from other video generation models because it can create exceptional videos a maximum of minute long while adhering to user-provided language instructions.</p>
+<p><a href="../images/sora1.gif"><img src="sora1.gif" alt="sora" style="display: block; margin: auto; " width="300"></a></p>
+<section id="major-contributions" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions">Major contributions</h3>
+<p><strong>Turning visual data into patches</strong>: Inspired from LLM, create visual patches which an effective representation for generative models of visual data for highly-scalable and effective representation.</p>
+<p><strong>Video compression network:</strong> This network is used to reduces the dimensionality of visual data and outputs a latent representation that is compressed both temporally and spatially. Moreover, train a corresponding decoder model that maps generated latents back to pixel space.</p>
+<p><strong>Spacetime latent patches</strong>: Given a compressed input video, a sequence of spacetime patches is extracted which act as transformer tokens.</p>
+<p><strong>Scaling transformers for video generation:</strong> A diffusion transformer model is trained by given input noisy patches to predict the clean patches.</p>
+<p><strong>Language understanding:</strong> Re-captioning technique from DALL·E 330 is used to train text-to-video generation systems. The study also uses GPT to convert user prompts into detailed captions.</p>
+</section>
+<section id="outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes">Outcomes</h3>
+<p><strong>Prompting with images and videos:</strong> Sora employs a variety of picture and video editing techniques, including as extending videos forward or backward in time, animating static images, and producing flawlessly looping videos.</p>
+<p><strong>Image generation capabilities:</strong> Sora generates images by arranging patches of Gaussian noise in a spatial grid with a temporal extent of one frame with variable sizes up to 2048x2048 resolution.</p>
+<p><strong>Emerging simulation capabilities:</strong> Video models show emergent capabilities when trained at scale, allowing Sora to simulate physical world aspects without explicit inductive biases for 3D and objects.</p>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<p>Sora’s simulator has limitations, including inaccuracies in modelling basic interactions like glass shattering and incorrect object state changes in eating food, and common failure modes include incoherencies and spontaneous appearances.</p>
+</section>
+</section>
+<section id="phi-3" class="level2">
+<h2 class="anchored" data-anchor-id="phi-3">Phi-3</h2>
+<p><strong>In April 2024, Microsoft Introduced Phi-3, the most powerful and economical small language models (SLMs)</strong> on the market, superior to models of the same size and next size up in a range of language, reasoning, coding, and math benchmarks.</p>
+<section id="major-contributions-1" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-1">Major contributions</h3>
+<p><strong>Enhanced Efficiency:</strong> Phi-3, despite its smaller parameter size of 3.8 billion, performs relatively as good as larger models, resulting in cost savings for deployment and operation in resource-constrained environments.</p>
+<p><strong>Versatile Applications:</strong> Phi-3 is versatile, capable of performing tasks like natural language processing, content creation, data analysis, and automation, reducing administrative burdens and enhancing market research and product development.</p>
+<p><strong>Multimodal Capabilities:</strong> Phi-3 Vision’s multimodal capabilities enable efficient text and image processing, expanding its application scope across various industries while maintaining high performance and reduced computational cost.</p>
+</section>
+<section id="outcomes-1" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-1">Outcomes</h3>
+<p><strong>Practical Applications:</strong> Phi-3 is utilized by organizations for content generation, data analysis, and customer support, enabling the creation of marketing copy, product descriptions, and chatbots.</p>
+<p><strong>Scalability and Flexibility:</strong> The Phi-3 family offers various model variants, including Phi-3-mini, Phi-3-small, and upcoming larger models, ensuring scalability and flexibility in performance and resource requirements.</p>
+</section>
+<section id="discussion-1" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-1">Discussion</h3>
+<p><strong>Limited Factual Knowledge:</strong> Phi-3, due to its smaller parameter size, struggles with tasks requiring extensive factual knowledge, hindering its effectiveness in applications requiring deep understanding, as seen in benchmarks like TriviaQA.</p>
+<p><strong>Complexity of Optimal Data Mixture:</strong> The complexity of selecting the optimal data mixture for training can impact the model’s generalization capabilities and overall effectiveness across various tasks.</p>
+</section>
+</section>
+<section id="alphafold-3" class="level2">
+<h2 class="anchored" data-anchor-id="alphafold-3">AlphaFold 3</h2>
+<p><strong>In May 2024, AlphaFold 3, a revolutionary protein folding model,</strong> the results show high-accuracy modelling across biomolecular space possibly within a single unified deep-learning network. It was unveiled <strong>in 2021 by 2024 Nobel Prize in Chemistry winner Co-founder and CEO of Google DeepMind and Isomorphic Labs Sir Demis Hassabis, and Google DeepMind Director Dr.&nbsp;John Jumper by Demis Hassabis, a groundbreaking AI system that predicts the 3D structure of proteins from their amino acid sequences.</strong> Their contributions to science have been widely praised and recognized for their work.</p>
+<section id="major-contributions-2" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-2">Major contributions</h3>
+<p><strong>Substantial evolution of the AF2 architecture and training procedure:</strong> Achieved by both to accommodate more general chemical structures and to improve the data efficiency of learning.</p>
+<p><strong>Improved evoformer:</strong> The system reduces the amount of multiple-sequence alignment (MSA) processing by replacing the AF2 evoformer with the simpler pairformer module.</p>
+<p><strong>Spacetime latent patches:</strong> Given a compressed input video, a sequence of spacetime patches is extracted which act as transformer tokens.</p>
+<p><strong>A diffusion-based module:</strong> It directly predicts the raw atom coordinates with a diffusion module, replacing the AF2 structure module that operated on amino-acid-specific frames and side-chain torsion angles.</p>
+</section>
+<section id="outcomes-2" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-2">Outcomes</h3>
+<p>Significantly higher accuracy for protein-ligand interactions as compared to the most advanced docking.</p>
+<p>Much better accuracy for protein-nucleic acid interactions than nucleic acid-specific predictors, and significantly better accuracy for antibody-antigen prediction than AlphaFold-Multimer v.2.3.</p>
+</section>
+<section id="discussion-2" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-2">Discussion</h3>
+<p>The AF3 model demonstrates the ability to accurately predict the structure of various biomolecular systems in a unified framework. Although there are still challenges, it shows strong coverage and generalization for all interactions.</p>
+<p>AF3 demonstrates that deep-learning frameworks can reduce data requirements and enhance data impact. Structural modelling will improve due to deep learning and experimental structure determination improvements.</p>
+</section>
+</section>
+<section id="veo-and-imagen-3" class="level2">
+<h2 class="anchored" data-anchor-id="veo-and-imagen-3">Veo and Imagen 3</h2>
+<p><strong>In May 2024, Google’s DeepMind introduced Veo and Imagen 3,</strong> a most advanced video generation model and highest quality text-to-image model of their research.</p>
+<p>Imagen 3 generated image with an input prompt.</p>
+<section id="major-contributions-3" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-3">Major contributions</h3>
+<p><strong>Model Architecture and Dataset:</strong> Veo uses advanced architectures for video generation, focusing on natural language and visual semantics. It generates coherent high-definition videos from text or image prompts. Imagen 3, a refined model, enhances photorealistic image generation by integrating improvements in detail and artifact reduction, likely based on diffusion models. Veo and Imagen 3 are trained on large-scale datasets containing real-world videos and AI-generated imagery with detailed captions, enabling to generate images and videos across various artistic genres and produce more accurate outputs.</p>
+</section>
+<section id="outcomes-3" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-3">Outcomes</h3>
+<p><strong>Functionality:</strong> Veo is a advanced video generation model that can produce high-definition videos from text or image prompts, supports various cinematic styles, and understands natural language and visual semantics. It can generate coherent video clips from real and AI-generated images, ensuring responsible content use. And, Imagen 3, an upgraded version of Google’s text-to-image generator, offers advanced editing capabilities, mask-based editing, and customization options for creating detailed, lifelike images from simple text prompts. It can produce images across various styles, including photorealism, impressionism, and anime.</p>
+</section>
+<section id="discussion-3" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-3">Discussion</h3>
+<p>Veo has advanced capabilities but struggles with maintaining consistency in complex scenes, leading to discrepancies in detail and realism. Additionally, Veo may overpromise its capabilities, particularly in producing hyper-realistic animations. Imagen 3 faces challenges in achieving realistic outputs due to hallucinations.</p>
+</section>
+</section>
+<section id="llama-3" class="level2">
+<h2 class="anchored" data-anchor-id="llama-3">LLAMA 3</h2>
+<p><strong>In July 2024, Meta released Llama3, Herd of Models,</strong> that natively support multilinguality, coding, reasoning, and tool usage. This largest model is a dense Transformer with 405B parameters and a context window of up to 128K tokens.</p>
+<section id="major-contributions-4" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-4">Major contributions</h3>
+<p><strong>Larger Dataset and Training:</strong> The model was trained on a dataset that is seven times larger than that of Llama 2, encompassing over 15 trillion tokens.</p>
+<p><strong>Increased Context Length:</strong> Llama 3 has doubled the context length from 4K to 8K tokens for both its 8 billion (8B) and 70 billion (70B) parameter models. This allows for improved handling of longer documents and complex queries.</p>
+<p><strong>Model architecture:</strong> Llama 3 keeps the decoder-only transformer design but adds a number of improvements, like grouped query attention (GQA) and a tokenizer with a 128K token vocabulary, to improve inference performance and efficiency.</p>
+<p><strong>Trust and Safety Features</strong>: Meta has integrated new safety tools such as Llama Guard and Code Shield to filter insecure code outputs, emphasizing responsible AI deployment and usage.</p>
+</section>
+<section id="outcomes-4" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-4">Outcomes</h3>
+<p><strong>Performance Metrics:</strong> Llama 3 performs with impressive output speeds, with the 8 billion parameter model reaching 117.5 tokens per second and a lower latency of 0.34 seconds, enhancing user experience.</p>
+<p><strong>Usability and Flexibility:</strong> Llama 3 is highly adaptable and cost-efficient, suitable for various applications like coding and creative writing. Its configurations allow for fine-tuning, making it suitable for high-throughput tasks.</p>
+</section>
+<section id="discussion-4" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-4">Discussion</h3>
+<p><strong>Technical and Resource Challenges:</strong> Llama 3, with its 405 billion parameters, requires significant computational resources, making it impractical for regular users without hardware capabilities. Despite being designed for speed, larger models may experience latency issues and maintain coherence, affecting user experience.</p>
+<p><strong>Usability and Integration Challenges:</strong> Llama 3’s current version has limited multimodal capabilities, primarily focusing on text, which restricts its applicability in multimodal environments. Additionally, its English-centric dataset may result in suboptimal multilingual performance, hindering global applications.</p>
+</section>
+</section>
+<section id="sam-2" class="level2">
+<h2 class="anchored" data-anchor-id="sam-2">SAM 2</h2>
+<p><strong>In July 2024, Meta announced the Segment Anything Model 2 (SAM 2),</strong> the next generation of the Meta Segment Anything Model, supporting object segmentation in videos and images.</p>
+<p>SAM 2 model, a promptable segmentation in images and videos</p>
+<section id="major-contributions-5" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-5">Major contributions</h3>
+<p><strong>Unified Architecture:</strong> SAM 2 introduces a unified model architecture that integrates image and video segmentation, simplifying workflows and allowing users to work seamlessly across various visual media.</p>
+<p><strong>Enhanced Neural Network Design:</strong> The model’s refined neural network architecture enhances segmentation, improving accuracy in complex scenes with occlusions or similar colors and textures.</p>
+<p><strong>Zero-Shot Learning:</strong> SAM 2’s zero-shot learning feature enables it to segment new objects without explicit retraining, making it versatile and adaptable to diverse visual domains.</p>
+</section>
+<section id="outcomes-5" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-5">Outcomes</h3>
+<p><strong>Improved Performance Metrics:</strong> SAM 2 has set new performance benchmarks, enhancing image segmentation accuracy and reducing user interaction time compared to its predecessor, SAM.</p>
+<p><strong>Promptable Segmentation:</strong> In video allows users to specify objects of interest through clicks, bounding boxes, or masks, enhancing user interaction and precision in model output.</p>
+<p><strong>Consistency Across Frames:</strong> The model ensures consistent object tracking and segmentation across video frames, crucial for high-quality animation and visual effects applications.</p>
+</section>
+<section id="discussion-5" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-5">Discussion</h3>
+<p><strong>Complexity of Video Segmentation:</strong> Video segmentation is complex due to varying object motion, occlusion, lighting changes, and lower quality, which can complicate tracking and segmentation, especially in videos.</p>
+<p><strong>User Interaction Requirements:</strong> SAM 2 is designed for visual segmentation, but still requires user interaction for refinement. Automation could improve mask quality verification and error correction.</p>
+</section>
+</section>
+<section id="claudes-sonnet" class="level2">
+<h2 class="anchored" data-anchor-id="claudes-sonnet">Claude’s Sonnet</h2>
+<p>Claude 3.5 Sonnet is a highly proficient model that excels in understanding complex queries and nuanced language, ensuring high-quality, relatable content for a global audience.</p>
+<section id="major-contributions-6" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-6">Major contributions</h3>
+<p><strong>Model Architecture:</strong> Claude 3.5 Sonnet uses a Generative Pre-trained Transformer (GPT) architecture to predict the next word in a sequence of text, enabling effective applications in coding, writing, and visual data interpretation.</p>
+<p><strong>Dataset and Training:</strong> Claude 3.5 Sonnet, a model trained on vast datasets, enhances natural language understanding by generating human-like text. It supports a large context window of 200,000 tokens and incorporates advanced vision capabilities for image recognition and data visualization.</p>
+</section>
+<section id="outcomes-6" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-6">Outcomes</h3>
+<p><strong>Visual Processing Capabilities:</strong> Claude 3.5 Sonnet excels in image analysis, interpreting visual data with high accuracy, and effectively integrates visual and textual data for comprehensive analyses in industries like retail and finance.</p>
+<p><strong>Coding and Software Development:</strong> Claude 3.5 Sonnet enhances coding proficiency and productivity by enabling independent code writing, editing, and execution, while facilitating quick prototyping for app development.</p>
+<p><strong>Performance Metrics:</strong> Claude 3.5 Sonnet has demonstrated superior performance in benchmarks like HumanEval for coding and GPQA for reasoning tasks, showcasing its advanced capabilities.</p>
+</section>
+<section id="discussion-6" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-6">Discussion</h3>
+<p><strong>Performance Limitations:</strong> Claude 3.5 Sonnet, despite improving its language understanding, can misinterpret complex queries and have high error rates in coding tasks, requiring users to debug or refine the code.</p>
+<p><strong>Technical Challenges:</strong> Claude 3.5 Sonnet faces technical challenges, including token limitations and integration issues, affecting processing speed and efficiency for complex tasks and existing workflows.</p>
+</section>
+</section>
+<section id="gemini-2" class="level2">
+<h2 class="anchored" data-anchor-id="gemini-2">Gemini 2</h2>
+<p>Google’s most recent AI model was unveiled as a major development in the business’s AI capabilities. <strong>It is built for what Google calls the “agentic era,”</strong> highlighting the model’s capacity to integrate multimodal functions and carry out activities independently on behalf of users.</p>
+<section id="major-contributions-7" class="level3">
+<h3 class="anchored" data-anchor-id="major-contributions-7">Major contributions</h3>
+<p><strong>Multimodal Understanding:</strong> Gemini 2.0 is a versatile model that can process and generate various types of data, including text, images, audio, and code, making it more versatile than previous models.</p>
+<p><strong>Enhanced Performance with Low Latency:</strong> Gemini 2.0 Flash’s experimental model enhances performance with improved response times and time to first token (TTFT), improving user experience in real-time applications.</p>
+<p><strong>Agentic Capabilities:</strong> The design enhances agentic capabilities, allowing the model to comprehend context, follow complex instructions, and make autonomous decisions based on user prompts, making it a crucial proactive AI assistant.</p>
+</section>
+<section id="outcomes-7" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes-7">Outcomes</h3>
+<p><strong>Benchmark Performance:</strong> Gemini 2.0 Flash outperforms in language understanding, visual and multimedia understanding, and coding ability, with a score of 70.7% on the MMMU benchmark. However, it shows slightly lower performance in coding tasks.</p>
+<p><strong>Agentic Performance:</strong> Gemini 2.0 demonstrated its agentic performance with a 51.8% score on SWE-bench Verified, demonstrating its capability in real-world tasks like software engineering challenges.</p>
+<p><strong>Applications Across Various Fields:</strong> Gemini 2.0’s versatility allows its use in various fields such as research, business, education, and creative arts, accelerating scientific discovery, automating tasks, and improving decision-making.</p>
+</section>
+<section id="discussion-7" class="level3">
+<h3 class="anchored" data-anchor-id="discussion-7">Discussion</h3>
+<p>Gemini 2.0 has faced criticism for generating biased answers and historically inaccurate images, leading to backlash and calls for improvements in performance and accuracy. It also struggles with providing clear, accurate responses to complex topics, potentially causing user frustration and diminishing trust in its capabilities.</p>
+<p>As we approach 2025, the development of AI presents both exciting opportunities and significant risks. While focusing optimistically on how AI could transform industries, improve decision-making, and solve global problems. Ethicists emphasize responsible AI development, balancing innovation with oversight, to serve humanity’s best interests. The trajectory of AI depends on navigating competing visions and developing technology and governance structures.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

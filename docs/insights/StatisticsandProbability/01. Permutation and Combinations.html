@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-27">
+<meta name="author" content="Anushka Dhiman">
+<meta name="dcterms.date" content="2025-01-07">
 
 <title>Permutation and Combination – SOTA Insights</title>
 <style>
@@ -201,7 +202,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#fundamental-principle-of-counting" id="toc-fundamental-principle-of-counting" class="nav-link" data-scroll-target="#fundamental-principle-of-counting">Fundamental principle of counting</a></li>
+  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations">Permutations</a></li>
+  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations">Combinations</a></li>
   <li><a href="#permutation-and-combination-in-python" id="toc-permutation-and-combination-in-python" class="nav-link" data-scroll-target="#permutation-and-combination-in-python">Permutation and Combination in Python</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -220,11 +224,17 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Anushka Dhiman </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 27, 2022</p>
+      <p class="date">January 7, 2025</p>
     </div>
   </div>
   
@@ -242,124 +252,246 @@ window.Quarto = {
 </section>
 <section id="fundamental-principle-of-counting" class="level2">
 <h2 class="anchored" data-anchor-id="fundamental-principle-of-counting">Fundamental principle of counting</h2>
-<p><strong>1.1 Multiplication principle (Fundamental Principle of Counting)</strong></p>
+<section id="multiplication-principle" class="level3">
+<h3 class="anchored" data-anchor-id="multiplication-principle">Multiplication principle</h3>
 <p>Suppose an event E can occur in m different ways and associated with each way of occurring of E, another event F can occur in n different ways, then the total number of occurrence of the two events in the given order is m × n .</p>
-<p><strong>1.2 Addition principle</strong> If an event E can occur in m ways and another event F can occur in n ways, and suppose that both can not occur together, then E or F can occur in m + n ways.</p>
-<p><strong>1.3 Permutations A permutation is an arrangement of objects in a definite order.</strong></p>
-<p><strong>1.4 Permutation of n different objects</strong>: The number of permutations of n objects taken all at a time, denoted by the symbol $ ^nP_n $ , is given by</p>
-<p>where $ {n!} $ = n(n – 1) (n – 2) … 3.2.1, read as factorial n, or n factorial.</p>
-<p>The number of permutations of n objects taken r at a time, where 0 &lt; r ≤ n, denoted by $ ^nP_r $ , is given by</p>
-<p><span class="math display">\[ ^nP_r = \frac{n!}{(n-r)!} \]</span></p>
+<p>For example, if you roll a six-sided dice and a two sided coin, then there are 6 × 2 = 12 possible outcomes.</p>
+<p>Therefore, this principle can be use in everyday life when you need to calculate the number of possibilities that exist when combining choices.</p>
+<div id="cell-3" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The total number of possible combinations (dice, coin) can be calculated using the fundamental principle of counting.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of choices for dice and coin</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dice_choices <span class="op">=</span> <span class="dv">6</span> <span class="co"># 1, 2, 3, 4, 5, 6</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>coin_choices <span class="op">=</span> <span class="dv">2</span>  <span class="co"># H, T</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Total combinations using the Multiplication Principle of Counting</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>total_combinations <span class="op">=</span> dice_choices <span class="op">*</span> coin_choices</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total number of possible combinations: </span><span class="sc">{</span>total_combinations<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total number of possible combinations: 12</code></pre>
+</div>
+</div>
+</section>
+<section id="addition-principle" class="level3">
+<h3 class="anchored" data-anchor-id="addition-principle">Addition principle</h3>
+<p>If an event E can occur in m ways and another event F can occur in n ways, and suppose that both can not occur together, then E or F can occur in m + n ways.</p>
+<div id="cell-5" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The total number of possible combinations (dice, coin) can be calculated using addition principle of counting.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of choices for dice and coin</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dice_choices <span class="op">=</span> <span class="dv">6</span> <span class="co"># 1, 2, 3, 4, 5, 6</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>coin_choices <span class="op">=</span> <span class="dv">2</span>  <span class="co"># H, T</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Total combinations using the Addition Principle of Counting</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>total_combinations <span class="op">=</span> dice_choices <span class="op">+</span> coin_choices</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total number of possible combinations: </span><span class="sc">{</span>total_combinations<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total number of possible combinations: 8</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="permutations" class="level2">
+<h2 class="anchored" data-anchor-id="permutations">Permutations</h2>
+<p>A permutation is an arrangement of objects in a definite order.</p>
+<section id="permutation-of-n-different-objects" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-of-n-different-objects">Permutation of n different objects:</h3>
+<p>The number of permutations of n objects taken all at a time, denoted by the symbol <strong><span class="math inline">\(^nP_n\)</span></strong> , is given by</p>
+<p>where <strong><span class="math inline">\({n!}\)</span></strong> = n(n – 1) (n – 2) … 3.2.1, read as factorial n, or n factorial.</p>
+<p>There are basically two types of permutation:</p>
+</section>
+<section id="when-repetition-of-objects-is-allowed" class="level3">
+<h3 class="anchored" data-anchor-id="when-repetition-of-objects-is-allowed">When repetition of objects is allowed</h3>
+<p>In this case, you can finds all possible arrangements of a set of objects. And here, the order of the objects is important.</p>
+<p>The number of permutations of n things taken all at a time, when repetion of objects is allowed is <strong><span class="math inline">\(n^n\)</span></strong>.</p>
+<p>The number of permutations of n objects, taken r at a time, when repetition of objects is allowed, is <strong><span class="math inline">\(n^r\)</span></strong>.</p>
+</section>
+<section id="when-repetition-of-objects-is-not-allowed" class="level3">
+<h3 class="anchored" data-anchor-id="when-repetition-of-objects-is-not-allowed">When repetition of objects is not allowed</h3>
+<p>In this case, you cannot select the same item multiple times while arranging a set of items. Essentially, each item can only be used once in the arrangement, meaning the number of available choices decreases with each selection made.</p>
+<p>The number of permutations of n objects taken r at a time, where 0 &lt; r ≤ n, denoted by <strong><span class="math inline">\(^nP_r\)</span></strong> , is given by</p>
+<p><strong><span class="math display">\[ ^nP_r = \frac{n!}{(n-r)!} \]</span></strong></p>
 <p>where:<br>
-- $ n $ is the number of elements in the set.<br>
-- $ r $ is the number of elements taken together.</p>
-<p><strong>1.5 When repetition of objects is allowed</strong> The number of permutations of n things taken all at a time, when repetion of objects is allowed is nn. The number of permutations of n objects, taken r at a time, when repetition of objects is allowed, is nr.</p>
-<p><strong>1.6 Permutations when the objects are not distinct</strong> The number of permutations of n objects of which p1 are of one kind, p2 are of second kind, …, pk are of k th kind and the rest if any, are of different kinds is <span class="math display">\[ \frac{n!}{(p1!*p2!*p3!..p)!} \]</span></p>
-<p><strong>1.7 Combination</strong> On many occasions we are not interested in arranging but only in selecting r objects from given n objects. A combination is a selection of some or all of a number of different objects where the order of selection is immaterial. The formula for calculating the number of combinations from $ n $ elements taken $ r $ at a time is given by: <span class="math display">\[^n C_r = \frac{n!}{(n-r)! r!}\]</span></p>
+- <strong><span class="math inline">\(n\)</span></strong> is the number of elements in the set.<br>
+- <strong><span class="math inline">\(r\)</span></strong> is the number of elements taken together.</p>
+</section>
+<section id="permutations-when-the-objects-are-not-distinct-they-are-identical" class="level3">
+<h3 class="anchored" data-anchor-id="permutations-when-the-objects-are-not-distinct-they-are-identical">Permutations when the objects are not distinct: they are identical</h3>
+<p>In this case, when objects are identical, many arrangements will appear the same, so you need to divide by the number of ways to arrange the identical objects among themselves.</p>
+<p>The number of permutations of n objects of which r1 are of one kind, r2 are of second kind, …, rk are of kth kind and the rest if any, are of different kinds is</p>
+<p><strong><span class="math display">\[ \frac{n!}{(r1!*r2!*r3!..rk)!} \]</span></strong></p>
+</section>
+</section>
+<section id="combinations" class="level2">
+<h2 class="anchored" data-anchor-id="combinations">Combinations</h2>
+<p>This method is used to calculate the total number of outcomes when order doesn’t matter. Essentially, we are not interested in arranging rather in selecting r objects from given n objects.</p>
+<p>There are also two types of combinations:</p>
+<section id="combinations-without-repetition" class="level3">
+<h3 class="anchored" data-anchor-id="combinations-without-repetition">Combinations without Repetition</h3>
+<p>In this case, you can only select each item once when choosing a group from a set. For instance, picking lottery numbers, where each number drawn cannot be repeated.</p>
+<p>The formula for calculating the number of combinations from <strong><span class="math inline">\(n\)</span></strong> elements taken <strong><span class="math inline">\(r\)</span></strong> at a time is given by:</p>
+<p><strong><span class="math display">\[^n C_r = \frac{n!}{(n-r)! r!}\]</span></strong></p>
+</section>
+<section id="combinations-with-repetition" class="level3">
+<h3 class="anchored" data-anchor-id="combinations-with-repetition">Combinations with Repetition</h3>
+<p>In this case, when selecting items from a set, you can choose the same item multiple times. For instance, selecting flavors for ice cream cones, where you could choose two scoops of chocolate.</p>
+<p>If we choose a set of r items from n types of items, where repetition is allowed and the number items we are choosing from is essentially unlimited, the number of selections possible is given by:</p>
+<p><strong><span class="math display">\[^n C_r = \frac{(r+n-1)!}{(n-1)! r!}\]</span></strong></p>
 <p>Let’s explore some examples to better understand these concepts.</p>
+</section>
 </section>
 <section id="permutation-and-combination-in-python" class="level2">
 <h2 class="anchored" data-anchor-id="permutation-and-combination-in-python">Permutation and Combination in Python</h2>
 <p>These methods can be found in itertools package.</p>
-<p><strong>Permutation</strong></p>
-<p>First import itertools package to implement the permutations method in python. This method takes a list as an input and returns an object list of tuples that contain all permutations in a list form.</p>
-<p><strong>Example:</strong></p>
-<p><strong>Permutation taking 2 elements together from a set of 3 elements:</strong></p>
+<section id="permutation" class="level3">
+<h3 class="anchored" data-anchor-id="permutation"><strong>Permutation</strong></h3>
+<p>We can use itertools module to generate permutations of objects efficiently. Here’s how to use itertools for the three types of permutations that we’ve discussed lately:</p>
+<p><strong>1. Permutations of 𝑛 Different Objects (No Repetition)</strong></p>
+<p>For a set of 𝑛 distinct objects, itertools.permutations() can generate all possible permutations of those objects. This is for the case where you want to arrange all n different objects without repetition.</p>
+<div id="cell-13" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List of distinct objects</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>objects <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all permutations of the objects</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>permutations <span class="op">=</span> <span class="bu">list</span>(itertools.permutations(objects))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the permutations and the total number of permutations</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutations of distinct objects:"</span>, permutations)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of permutations:"</span>, <span class="bu">len</span>(permutations))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutations of distinct objects: [('A', 'B', 'C'), ('A', 'C', 'B'), ('B', 'A', 'C'), ('B', 'C', 'A'), ('C', 'A', 'B'), ('C', 'B', 'A')]
+Total number of permutations: 6</code></pre>
+</div>
+</div>
+<p><strong>2. Permutations When Repetition of Objects is Allowed</strong></p>
+<p>In this case, itertools.product() can be used to simulate the scenario where repetition is allowed. The result will generate all possible combinations where the same object can appear multiple times.</p>
+<div id="cell-15" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all permutations of length 2, allowing repetition</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>permutations_with_repetition <span class="op">=</span> <span class="bu">list</span>(itertools.product(objects, repeat<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the permutations and the total number of permutations</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutations with repetition allowed:"</span>, permutations_with_repetition)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of permutations:"</span>, <span class="bu">len</span>(permutations_with_repetition))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutations with repetition allowed: [('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'B'), ('B', 'C'), ('C', 'A'), ('C', 'B'), ('C', 'C')]
+Total number of permutations: 9</code></pre>
+</div>
+</div>
+<p><strong>If you want to generate permutations for selecting and arranging a specific number of elements from a set.</strong></p>
+<p>Permutaion taking 2 elements together from a set of 3 elements:</p>
 <p><span class="math display">\[ ^3P_2 = \frac{3!}{(3-2)!} = \frac{3!}{1!} = \frac{6}{1} = 6 \]</span></p>
-<p><strong>Permutation taking 3 elements together from a set of 3 elements:</strong></p>
-<p><span class="math display">\[ ^3P_3 = \frac{3!}{(3-3)!} = \frac{3!}{0!} = \frac{6}{1} = 6 \]</span></p>
-<div id="cell-7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import permutations using itertools package</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> permutations </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>char_set <span class="op">=</span> {<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>} <span class="co"># define a charater set of 3 elements</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>permutations1 <span class="op">=</span> permutations(char_set, <span class="dv">2</span>) <span class="co"># permutations taking two elements</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> permutations1:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Permutation taking 3 elements together from a set of 3 elements:</p>
+<p><span class="math display">\[ ^3P_3 = \frac{3!}{(3-3)!} = \frac{3!}{0!} = \frac{6}{0} = 6 \]</span></p>
+<div id="cell-17" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>char_set <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>] <span class="co"># define a charater set of 3 elements</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>permutations1 <span class="op">=</span> <span class="bu">list</span>(itertools.permutations(char_set, <span class="dv">2</span>)) <span class="co"># permutations taking two elements</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>permutations2 <span class="op">=</span> <span class="bu">list</span>(itertools.permutations(char_set, <span class="dv">3</span>)) <span class="co"># permutations taking three elements</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the permutations taking two elements and taking three elements</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutations of 2 elements from 3 elements:"</span>, permutations1)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Permutations of 3 elements from 3 elements:"</span>, permutations2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>('B', 'A')
-('B', 'C')
-('A', 'B')
-('A', 'C')
-('C', 'B')
-('C', 'A')</code></pre>
+<pre><code>Permutations of 2 elements from 3 elements: [('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]
+Permutations of 3 elements from 3 elements: [('A', 'B', 'C'), ('A', 'C', 'B'), ('B', 'A', 'C'), ('B', 'C', 'A'), ('C', 'A', 'B'), ('C', 'B', 'A')]</code></pre>
 </div>
 </div>
-<div id="cell-8" class="cell" data-outputid="6cf57180-1338-460b-c044-554fc22e5e9f" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>permutations2 <span class="op">=</span> permutations(char_set, <span class="dv">3</span>) <span class="co"># permutations by taking two elements</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> permutations2:</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>3. Permutations When the Objects are Not Distinct</strong></p>
+<p>For permutations with non-distinct objects, itertools.permutations will still generate all permutations, but you need to account for repeated objects manually by removing duplicates after generating the permutations.</p>
+<div id="cell-19" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List of objects, some of which are repeated</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>objects <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'A'</span>, <span class="st">'B'</span>]</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate all permutations and remove duplicates by converting to a set</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>distinct_permutations <span class="op">=</span> <span class="bu">set</span>(itertools.permutations(objects))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the distinct permutations and the total number of distinct permutations</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Distinct permutations of non-distinct objects:"</span>, distinct_permutations)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of distinct permutations:"</span>, <span class="bu">len</span>(distinct_permutations))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>('B', 'A', 'C')
-('B', 'C', 'A')
-('A', 'B', 'C')
-('A', 'C', 'B')
-('C', 'B', 'A')
-('C', 'A', 'B')</code></pre>
+<pre><code>Distinct permutations of non-distinct objects: {('B', 'A', 'A'), ('A', 'B', 'A'), ('A', 'A', 'B')}
+Total number of distinct permutations: 3</code></pre>
 </div>
 </div>
 <p>Now, let’s take a look at combinations</p>
-<div id="cell-10" class="cell" data-outputid="1202466c-0d9d-4418-e6b8-45b90dbadba3" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import permutations using itertools package</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>combination1 <span class="op">=</span> combinations(char_set, <span class="dv">2</span>) <span class="co"># combination taking two elements</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> combination1:</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Combinations without Repetition</strong></p>
+<p>Combination taking 2 elements together from a set of 3 elements:</p>
+<p><span class="math display">\[ ^3C_2 = \frac{3!}{(3-2)!2!} = \frac{3!}{1!*2!} = \frac{6}{2} = 3 \]</span></p>
+<p>Combination taking 3 elements together from a set of 3 elements:</p>
+<p><span class="math display">\[ ^3C_3 = \frac{3!}{(3-3)!3!} = \frac{3!}{0!*3!} = \frac{6}{6} = 1 \]</span></p>
+<div id="cell-21" class="cell" data-outputid="1202466c-0d9d-4418-e6b8-45b90dbadba3" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import combinations using itertools package</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>combination1 <span class="op">=</span> <span class="bu">list</span>(combinations(char_set, <span class="dv">2</span>)) <span class="co"># combination taking two elements</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the combination taking two elements and the total number of combinations</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combinations of 2 elements from 3 elements:"</span>, combination1)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of combinations of 2 elements from 3 elements:"</span>, <span class="bu">len</span>(combination1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>('B', 'A')
-('B', 'C')
-('A', 'C')</code></pre>
+<pre><code>Combinations of 2 elements from 3 elements: [('A', 'B'), ('A', 'C'), ('B', 'C')]
+Total number of combinations of 2 elements from 3 elements: 3</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-outputid="3d3bf569-3411-41d0-a9a9-55d503168d2a" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>combination2 <span class="op">=</span> combinations(char_set, <span class="dv">3</span>) <span class="co"># combination taking three elements</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> combination2: </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-22" class="cell" data-outputid="3d3bf569-3411-41d0-a9a9-55d503168d2a" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>combination2 <span class="op">=</span> <span class="bu">list</span>(combinations(char_set, <span class="dv">3</span>)) <span class="co"># combination taking three elements</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the combination taking three elements and the total number of combinations</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combinations of 2 elements from 3 elements:"</span>, combination2)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of combinations of 3 elements from 3 elements:"</span>, <span class="bu">len</span>(combination2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>('B', 'A', 'C')</code></pre>
+<pre><code>Combinations of 2 elements from 3 elements: [('A', 'B', 'C')]
+Total number of combinations of 3 elements from 3 elements: 1</code></pre>
 </div>
 </div>
-<p>In addition to these, itertools provides two more functions:</p>
+<p><strong>Combinations with Repetiton</strong></p>
+<p>This function generates all possible combinations of <strong><span class="math inline">\(r\)</span></strong> elements from a given iterable, allowing elements to be selected multiple times. It’s useful when repetitions are allowed in the selection process.</p>
+<p>Combination taking 2 elements together from a set of 3 elements:</p>
+<p><span class="math display">\[ ^3C_2 = \frac{(2+3-1)!}{(3-1)!*2!} = \frac{4!}{2!*2!} = \frac{24}{2*2} = 6 \]</span></p>
+<p>Combination taking 3 elements together from a set of 3 elements:</p>
+<p><span class="math display">\[ ^3C_3 = \frac{(3+3-1)!}{(3-1)!*3!} = \frac{5!}{2!*3!} = \frac{120}{2*6} = 10 \]</span></p>
+<div id="cell-24" class="cell" data-outputid="83164b64-70d0-41c0-a244-cdefd295680f">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations_with_replacement </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>combination_with_replacement1 <span class="op">=</span> <span class="bu">list</span>(combinations_with_replacement(char_set, <span class="dv">2</span>)) <span class="co">#combination taking two elements with replacement</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the combination taking three elements and the total number of combinations</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combinations of 2 elements from 3 elements:"</span>, combination_with_replacement1)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of combinations of 2 elements from 3 elements:"</span>, <span class="bu">len</span>(combination_with_replacement1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Combinations of 2 elements from 3 elements: [('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'B'), ('B', 'C'), ('C', 'C')]
+Total number of combinations of 3 elements from 3 elements: 6</code></pre>
+</div>
+</div>
+<div id="cell-25" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>combination_with_replacement2 <span class="op">=</span> <span class="bu">list</span>(combinations_with_replacement(char_set, <span class="dv">3</span>)) <span class="co">#combination taking three elements with replacement</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Output the combination taking three elements and the total number of combinations</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combinations of 3 elements from 3 elements:"</span>, combination_with_replacement2)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total number of combinations of 3 elements from 3 elements:"</span>, <span class="bu">len</span>(combination_with_replacement2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Combinations of 3 elements from 3 elements: [('A', 'A', 'A'), ('A', 'A', 'B'), ('A', 'A', 'C'), ('A', 'B', 'B'), ('A', 'B', 'C'), ('A', 'C', 'C'), ('B', 'B', 'B'), ('B', 'B', 'C'), ('B', 'C', 'C'), ('C', 'C', 'C')]
+Total number of combinations of 3 elements from 3 elements: 10</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This article explores combinatorics, specifically permutations and combinations, implementing it using python. It provides mathematical theory and python implementation in solving broader problems.</p>
+<p>Permutations and Combinations have been crucial in fields ranging from cryptography to the optimization of AI algorithms.</p>
+<p>For instance, in machine learning is feature selection in model training.</p>
 <ul>
-<li><p><strong>Combinations with Replacement</strong>: This function generates all possible combinations of $ r $ elements from a given iterable, allowing elements to be selected multiple times. It’s useful when repetitions are allowed in the selection process.</p></li>
-<li><p><strong>Product</strong>: This function computes the Cartesian product of input iterables. It generates all possible combinations where each element from one iterable is combined with every element from other iterables. It’s beneficial for creating all possible combinations of multiple sets of elements.</p></li>
+<li><p>Permutations: It can be used to generate different sets of features to test their performance, optimizing the model’s accuracy.</p></li>
+<li><p>Combinations: It can be used to determine the number of ways features can be selected from a larger set, helping in reducing model complexity and improving interpretability.</p></li>
 </ul>
-<div id="cell-13" class="cell" data-outputid="83164b64-70d0-41c0-a244-cdefd295680f">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations_with_replacement </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>combination_with_replacement <span class="op">=</span> combinations_with_replacement(char_set, <span class="dv">2</span>) <span class="co">#combination taking two elements with replacement</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> combination_with_replacement:</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>('B', 'B')
-('B', 'C')
-('B', 'A')
-('C', 'C')
-('C', 'A')
-('A', 'A')</code></pre>
-</div>
-</div>
-<div id="cell-14" class="cell" data-outputid="8363c139-daf4-4784-ff7f-2f72d3580287" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>product_with_replacement <span class="op">=</span> product(char_set, repeat<span class="op">=</span><span class="dv">2</span>) <span class="co">#product taking two elements with replacement</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> product_with_replacement:</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>('B', 'B')
-('B', 'A')
-('B', 'C')
-('A', 'B')
-('A', 'A')
-('A', 'C')
-('C', 'B')
-('C', 'A')
-('C', 'C')</code></pre>
-</div>
-</div>
+<p><em>I’d love any feedback you may have. Feel free to reach out and follow SOTA Insights for more such articles!</em></p>
 
 
 </section>
