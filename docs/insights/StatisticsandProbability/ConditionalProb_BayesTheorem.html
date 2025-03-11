@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Anushka Dhiman">
+<meta name="dcterms.date" content="2025-01-11">
 
-<title>Insights – SOTA Insights</title>
+<title>Conditional Probability and Bayes Theorem – SOTA Insights</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/favicon-32x32.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed04999718f06b735b1f8009dce43b94.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-accd9b930b57df096080ab44b4e6ecf4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-51607fa6ca7abb7707d3bdd168db6087.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed04999718f06b735b1f8009dce43b94.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-accd9b930b57df096080ab44b4e6ecf4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-51607fa6ca7abb7707d3bdd168db6087.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -141,7 +112,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">SOTA Insights</span>
     </a>
   </div>
@@ -152,15 +123,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./insights.html" aria-current="page"> 
+    <a class="nav-link" href="../../insights.html"> 
 <span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -187,26 +158,47 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==">Probabity and Statistics <span class="quarto-category-count">(3)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link active" data-scroll-target="#conditional-probability">Conditional Probability</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem">Bayes’ Theorem</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Insights</h1>
-<p class="subtitle lead">Let’s explore state-of-the-art machine learning and artificial intelligence models!</p>
-</div>
+<h1 class="title">Conditional Probability and Bayes Theorem</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Probabity and Statistics</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Anushka Dhiman </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 11, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -216,117 +208,150 @@ window.Quarto = {
 </header>
 
 
+<hr>
+<p>Uptill now in probability, we have discussed the methods of finding the probability of events. If we have two events from the same sample space, does the information about the occurrence of one of the events affect the probability of the other event?</p>
+<section id="conditional-probability" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-probability">Conditional Probability</h2>
+<p>Let us try to answer this question by taking up a random experiment in which the outcomes are equally likely to occur.</p>
+<p>Consider the experiment of tossing three fair coins. The sample space of the experiment is S = {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT}</p>
+<p>Since the coins are fair, we can assign the probability <span class="math inline">\(\frac{1}{8}\)</span> to each sample point. Let <span class="math inline">\(E\)</span> be the event “at least two heads appear” and <span class="math inline">\(F\)</span> be the event “first coin shows tail”. Then:</p>
+<ul>
+<li><p><span class="math inline">\(E = \{HHH, HHT, HTH, THH\}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{THH, THT, TTH, TTT\}\)</span></p></li>
+</ul>
+<p>Therefore:</p>
+<ul>
+<li><p>The probability of <span class="math inline">\(E\)</span> is the sum of the probabilities of its sample points:</p>
+<p><span class="math display">\[
+P(E) = P(\{HHH\}) + P(\{HHT\}) + P(\{HTH\}) + P(\{THH\})\]</span></p>
+<p><span class="math display">\[= \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} = \frac{1}{2}
+\]</span></p>
+<p>The reason for this calculation is that each of these outcomes is equally likely, and there are four outcomes where at least two heads appear.</p></li>
+<li><p>The probability of <span class="math inline">\(F\)</span> is the sum of the probabilities of its sample points:</p>
+<p><span class="math display">\[
+P(F) = P(\{THH\}) + P(\{THT\}) + P(\{TTH\}) + P(\{TTT\})\]</span></p>
+<p><span class="math display">\[= \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} = \frac{4}{8} = \frac{1}{2}
+\]</span></p></li>
+<li><p>The intersection of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, denoted <span class="math inline">\(E \cap F\)</span>, contains only the outcome where the first coin shows a tail and at least two heads appear:</p>
+<p><span class="math display">\[
+E \cap F = \{THH\}
+\]</span></p>
+<p>Therefore, the probability of <span class="math inline">\(E \cap F\)</span> is:</p>
+<p><span class="math display">\[
+P(E \cap F) = P(\{THH\}) = \frac{1}{8}\]</span></p></li>
+</ul>
+<p>Now, suppose we are given that the first coin shows tail, i.e.&nbsp;F occurs, then what is the probability of occurrence of E? With the information of occurrence of F, we are sure that the cases in which first coin does not result into a tail should not be considered while finding the probability of E. This information reduces our sample space from the set S to its subset F for the event E. In other words, the additional information really amounts to telling us that the situation may be considered as being that of a new random experiment for which the sample space consists of all those outcomes only which are favourable to the occurrence of the event F. Now, the sample point of F which is favourable to event E is THH.</p>
+<p>Now, suppose we are given that the first coin shows tail, i.e.&nbsp;F occurs, then what is the probability of occurrence of E?</p>
+<p>With the information of occurrence of F, we are sure that the cases in which first coin does not result into a tail should not be considered while finding the probability of E. This information reduces our sample space from the set S to its subset F for the event E.</p>
+<p>In other words, the additional information really amounts to telling us that the situation may be considered as being that of a new random experiment for which the sample space consists of all those outcomes only which are favourable to the occurrence of the event F.</p>
+<p>Now, the sample point of F which is favourable to event E is THH.</p>
+<p>Thus, the probability of <span class="math inline">\(E\)</span> considering <span class="math inline">\(F\)</span> as the sample space is <span class="math inline">\(\frac{1}{4}\)</span>. The probability of <span class="math inline">\(E\)</span> given that the event <span class="math inline">\(F\)</span> has occurred is also <span class="math inline">\(\frac{1}{4}\)</span>. This probability of the event <span class="math inline">\(E\)</span> is called the conditional probability of <span class="math inline">\(E\)</span> given that <span class="math inline">\(F\)</span> has already occurred, and is denoted by <span class="math inline">\(P(E|F)\)</span>. Thus,</p>
+<p><span class="math display">\[
+P(E|F) = \frac{1}{4}
+\]</span></p>
+<p>Note that the elements of <span class="math inline">\(F\)</span> which favor the event <span class="math inline">\(E\)</span> are the common elements of <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>, i.e., the sample points of <span class="math inline">\(E \cap F\)</span>. Thus, we can also write the conditional probability of <span class="math inline">\(E\)</span> given that <span class="math inline">\(F\)</span> has occurred as:</p>
+<p><span class="math display">\[
+P(E|F) = \frac{\text{Number of elementary events favorable to } E \cap F}{\text{Number of elementary events favorable to } F}
+\]</span></p>
+<p>Dividing the numerator and the denominator by the total number of elementary events of the sample space, we see that <span class="math inline">\(P(E|F)\)</span> can also be written as:</p>
+<p><span class="math display">\[
+P(E|F) = \frac{n(E \cap F)}{n(F)} = \frac{n(E \cap F) / n(S)}{n(F) / n(S)} = \frac{P(E \cap F)}{P(F)}
+\]</span></p>
+<p>Note that this formula is valid only when <span class="math inline">\(P(F) \neq 0\)</span>, i.e., <span class="math inline">\(F \neq \phi\)</span>. This is because division by zero is undefined, and if <span class="math inline">\(P(F) = 0\)</span>, it means that the event <span class="math inline">\(F\)</span> is impossible, so it cannot be used as a condition for calculating conditional probability.</p>
+<p>Thus, we can define the conditional probability as follows:</p>
+<p>If <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are two events associated with the same sample space of a random experiment, the conditional probability of the event <span class="math inline">\(E\)</span> given that <span class="math inline">\(F\)</span> has occurred, i.e., <span class="math inline">\(P(E|F)\)</span>, is given by:</p>
+<p><span class="math display">\[
+P(E|F) = \frac{P(E \cap F)}{P(F)}
+\]</span></p>
+<p>provided that <span class="math inline">\(P(F) \neq 0\)</span>.</p>
+</section>
+<section id="bayes-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-theorem">Bayes’ Theorem</h2>
+<p>Consider that there are two bags I and II. Bag I contains 2 white and 3 red balls and Bag II contains 4 white and 5 red balls.</p>
+<p>One ball is drawn at random from one of the bags.</p>
+<p>We can find the probability of selecting any of the bags (i.e.&nbsp;1/2 ) or probability of drawing a ball of a particular colour (say white) from a particular bag (say Bag I).</p>
+<p>In other words, we can find the probability that the ball drawn is of a particular colour, if we are given the bag from which the ball is drawn. But, can we find the probability that the ball drawn is from a particular bag (say Bag II), if the colour of the ball drawn is given?</p>
+<p>Here, we have to find the reverse probability of Bag II to be selected when an event occurred after it is known.</p>
+<p>Famous mathematician, John Bayes’ solved the problem of finding reverse probability by using conditional probability. The formula developed by him is known as ‘Bayes theorem’ which was published posthumously in 1763. Before stating and proving the Bayes’ theorem, let us first take up a definition and some preliminary results.</p>
+<p>A set of events <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> is said to represent a partition of the sample space <span class="math inline">\(S\)</span> if:</p>
+<ol type="a">
+<li><p><span class="math inline">\(E_i \cap E_j = \phi\)</span>, for <span class="math inline">\(i \neq j\)</span>, where <span class="math inline">\(i, j = 1, 2, 3, \ldots, n\)</span>. This means that the events are pairwise disjoint.</p></li>
+<li><p><span class="math inline">\(E_1 \cup E_2 \cup \ldots \cup E_n = S\)</span>. This means that the events are exhaustive.</p></li>
+<li><p><span class="math inline">\(P(E_i) &gt; 0\)</span> for all <span class="math inline">\(i = 1, 2, \ldots, n\)</span>. This means that each event has a nonzero probability.</p></li>
+</ol>
+<p>In other words, the events <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> represent a partition of the sample space <span class="math inline">\(S\)</span> if they are pairwise disjoint, exhaustive, and have nonzero probabilities.</p>
+<p>As an example, we see that any nonempty event <span class="math inline">\(E\)</span> and its complement <span class="math inline">\(E'\)</span> form a partition of the sample space <span class="math inline">\(S\)</span> since they satisfy <span class="math inline">\(E \cap E' = \phi\)</span> and <span class="math inline">\(E \cup E' = S\)</span>.</p>
+<p>From the Venn diagram, one can easily observe that if <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are any two events associated with a sample space <span class="math inline">\(S\)</span>, then the set <span class="math inline">\(\{E \cap F', E \cap F, E' \cap F, E' \cap F'\}\)</span> is a partition of the sample space <span class="math inline">\(S\)</span>.</p>
+<p>It may be mentioned that the partition of a sample space is not unique. There can be several partitions of the same sample space. We shall now prove a theorem known as Theorem of total probability.</p>
+<p>Theorem of Total Probability:</p>
+<p>Let <span class="math inline">\(\{E_1, E_2, \ldots, E_n\}\)</span> be a partition of the sample space <span class="math inline">\(S\)</span>, and suppose that each of the events <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> has a nonzero probability of occurrence. Let <span class="math inline">\(A\)</span> be any event associated with <span class="math inline">\(S\)</span>. Then, the probability of <span class="math inline">\(A\)</span> can be expressed as:</p>
+<p><span class="math display">\[
+P(A) = P(E_1)P(A|E_1) + P(E_2)P(A|E_2) + \ldots + P(E_n)P(A|E_n)
+\]</span></p>
+<p>Alternatively, using summation notation:</p>
+<p><span class="math display">\[
+P(A) = \sum_{i=1}^{n} P(E_i)P(A|E_i)
+\]</span></p>
+<p>We shall now state and prove Bayes’ Theorem.</p>
+<p>Bayes’ Theorem:</p>
+<p>If <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> are <span class="math inline">\(n\)</span> non-empty events that constitute a partition of the sample space <span class="math inline">\(S\)</span>, i.e., <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> are pairwise disjoint and <span class="math inline">\(E_1 \cup E_2 \cup \ldots \cup E_n = S\)</span>, and <span class="math inline">\(A\)</span> is any event of nonzero probability, then:</p>
+<p><span class="math display">\[
+P(E_i|A) = \frac{P(E_i)P(A|E_i)}{\sum_{j=1}^{n} P(E_j)P(A|E_j)}
+\]</span></p>
+<p>for any <span class="math inline">\(i = 1, 2, 3, \ldots, n\)</span>.</p>
+<p>Proof:</p>
+<p>By the formula of conditional probability, we know that:</p>
+<p><span class="math display">\[
+P(E_i|A) = \frac{P(A \cap E_i)}{P(A)}
+\]</span></p>
+<p>Using the multiplication rule of probability, we have:</p>
+<p><span class="math display">\[
+P(A \cap E_i) = P(E_i)P(A|E_i)
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+P(E_i|A) = \frac{P(E_i)P(A|E_i)}{P(A)}
+\]</span></p>
+<p>By the theorem of total probability, we know that:</p>
+<p><span class="math display">\[
+P(A) = \sum_{j=1}^{n} P(E_j)P(A|E_j)
+\]</span></p>
+<p>Substituting this into the expression for <span class="math inline">\(P(E_i|A)\)</span> gives:</p>
+<p><span class="math display">\[
+P(E_i|A) = \frac{P(E_i)P(A|E_i)}{\sum_{j=1}^{n} P(E_j)P(A|E_j)}
+\]</span></p>
+<p>Remark:</p>
+<p>The following terminology is generally used when Bayes’ theorem is applied. The events <span class="math inline">\(E_1, E_2, \ldots, E_n\)</span> are called <strong>hypotheses</strong>. The probability <span class="math inline">\(P(E_i)\)</span> is called the <strong>a priori probability</strong> of the hypothesis <span class="math inline">\(E_i\)</span>. The conditional probability <span class="math inline">\(P(E_i|A)\)</span> is called the <strong>a posteriori probability</strong> of the hypothesis <span class="math inline">\(E_i\)</span>. Bayes’ theorem is also called the formula for the probability of “causes”. Since the <span class="math inline">\(E_i\)</span>’s are a partition of the sample space <span class="math inline">\(S\)</span>, one and only one of the events <span class="math inline">\(E_i\)</span> occurs (i.e., one of the events <span class="math inline">\(E_i\)</span> must occur and only one can occur). Hence, the above formula gives us the probability of a particular <span class="math inline">\(E_i\)</span> (i.e., a “cause”), given that the event <span class="math inline">\(A\)</span> has occurred. Bayes’ theorem has its applications in a variety of situations, a few of which are illustrated in the following examples.</p>
+<p>Let’s consider an example,</p>
+<p>Bag I contains 3 red and 4 black balls, while another Bag II contains 5 red and 6 black balls. One ball is drawn at random from one of the bags and it is found to be red. We need to find the probability that it was drawn from Bag II.</p>
+<p>Take a shot at solving it by yourself first!!!</p>
+<details>
+<summary>
+The moment of truth: here’s the solution!
+</summary>
+<p>Let <span class="math inline">\(E_1\)</span> be the event of choosing Bag I, <span class="math inline">\(E_2\)</span> the event of choosing Bag II, and <span class="math inline">\(A\)</span> be the event of drawing a red ball. Then:</p>
+<ul>
+<li><span class="math inline">\(P(E_1) = P(E_2) = \frac{1}{2}\)</span></li>
+<li><span class="math inline">\(P(A|E_1) = P(\text{drawing a red ball from Bag I}) = \frac{3}{7}\)</span></li>
+<li><span class="math inline">\(P(A|E_2) = P(\text{drawing a red ball from Bag II}) = \frac{5}{11}\)</span></li>
+</ul>
+<p>Now, the probability of drawing a ball from Bag II, given that it is red, is <span class="math inline">\(P(E_2|A)\)</span>. By using Bayes’ theorem, we have:</p>
+<p><span class="math display">\[
+P(E_2|A) = \frac{P(E_2)P(A|E_2)}{P(E_1)P(A|E_1) + P(E_2)P(A|E_2)}
+\]</span></p>
+<p>Substituting the given values:</p>
+<p><span class="math display">\[
+P(E_2|A) = \frac{\frac{1}{2} \times \frac{5}{11}}{\frac{1}{2} \times \frac{3}{7} + \frac{1}{2} \times \frac{5}{11}}
+\]</span></p>
+<p>Simplifying:</p>
+<p><span class="math display">\[
+P(E_2|A) = \frac{\frac{5}{22}}{\frac{3}{14} + \frac{5}{22}} = \frac{\frac{5}{22}}{\frac{33 + 35}{154}} = \frac{\frac{5}{22}}{\frac{68}{154}} = \frac{5}{22} \times \frac{154}{68} = \frac{5 \times 7}{68} = \frac{35}{68}\]</span></p>
+</details>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==" data-listing-date-sort="1736533800000" data-listing-file-modified-sort="1741696859878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1729">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external">
-<p><img loading="lazy" src="./insights/StatisticsandProbability" class="thumbnail-image"></p>
-</a><p><a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external">Conditional Probability and Bayes Theorem</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external">
-<div class="listing-date">
-Jan 11, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==" data-listing-date-sort="1736361000000" data-listing-file-modified-sort="1741695535390" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1214">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/Probability.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/Probability.html" class="no-external">
-<p><img loading="lazy" src="./insights/StatisticsandProbability" class="thumbnail-image"></p>
-</a><p><a href="./insights/StatisticsandProbability/Probability.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/Probability.html" class="no-external">Probability</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/Probability.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/Probability.html" class="no-external">
-<div class="listing-date">
-Jan 9, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==" data-listing-date-sort="1736188200000" data-listing-file-modified-sort="1741604172192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1102">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external">
-<p><img loading="lazy" src="./insights/StatisticsandProbability/permandcomb.jpg" class="thumbnail-image"></p>
-</a><p><a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external">Permutation and Combination</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external">
-<div class="listing-date">
-Jan 7, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -913,5 +938,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

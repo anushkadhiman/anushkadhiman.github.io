@@ -2,6 +2,8 @@
   {
     "listing": "/insights.html",
     "items": [
+      "/insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html",
+      "/insights/StatisticsandProbability/Probability.html",
       "/insights/StatisticsandProbability/PermutationandCombination.html"
     ]
   },
