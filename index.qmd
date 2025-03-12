@@ -8,7 +8,6 @@ At SOTA Insights, you'll find:
 
 1. [Insights](docs/insights.html): Articles and tutorials on SOTA algorithms and architectures, complete with code and visualizations.
 
-2. [Blogs](docs/blogs.html): Updates on the latest trends, breakthroughs, and technologies in AI.
-
+2. [Blogs](docs/blogs.html): Exploring AI trends, tech, books, and mindful productivity.
 
 SOTA Insights is just the beginning of my journey to explore, learn, and contribute to the AI ecosystem. I hope you’ll join me in this mission.
