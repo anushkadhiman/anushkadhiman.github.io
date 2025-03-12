@@ -24,6 +24,12 @@ website:
     right: |
     left: "This website blog is built with [Quarto](https://quarto.org/)."
 
+  # comments:
+  #   giscus:
+  #     repo: "https://github.com/anushkadhiman/anushkadhiman.github.io"
+  #     category: "General"
+  #     category-id: "DIC_kwDOEmRedc4Cn5xX"
+
 format:
   html:
     toc: true
@@ -41,6 +47,9 @@ format:
     code-copy: true
     code-overflow: wrap
     citations-hover: true
+
+    includes:
+      after-body: giscus.html
 
 execute:
   freeze: true
