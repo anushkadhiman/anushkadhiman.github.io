@@ -2,12 +2,12 @@
   {
     "listing": "/insights.html",
     "items": [
-      "/insights/StatisticsandProbability/MachineLearning/decision_tree.html",
-      "/insights/StatisticsandProbability/MachineLearning/k_means.html",
-      "/insights/StatisticsandProbability/MachineLearning/knn.html",
-      "/insights/StatisticsandProbability/MachineLearning/svm.html",
-      "/insights/StatisticsandProbability/MachineLearning/logistic_regression.html",
-      "/insights/StatisticsandProbability/MachineLearning/linear_regression.html",
+      "/insights/MachineLearning/decision_tree.html",
+      "/insights/MachineLearning/k_means.html",
+      "/insights/MachineLearning/knn.html",
+      "/insights/MachineLearning/svm.html",
+      "/insights/MachineLearning/logistic_regression.html",
+      "/insights/MachineLearning/linear_regression.html",
       "/insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html",
       "/insights/StatisticsandProbability/Probability.html",
       "/insights/StatisticsandProbability/PermutationandCombination.html"
