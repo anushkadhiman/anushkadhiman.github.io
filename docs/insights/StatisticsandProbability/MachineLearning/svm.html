@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Anushka Dhiman">
+<meta name="dcterms.date" content="2025-01-15">
 
-<title>Insights – SOTA Insights</title>
+<title>Support Vector Machine implementation from scratch with Python – SOTA Insights</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,30 +22,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/favicon-32x32.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed04999718f06b735b1f8009dce43b94.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-accd9b930b57df096080ab44b4e6ecf4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-51607fa6ca7abb7707d3bdd168db6087.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/favicon-32x32.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed04999718f06b735b1f8009dce43b94.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-accd9b930b57df096080ab44b4e6ecf4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-51607fa6ca7abb7707d3bdd168db6087.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,66 +105,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -141,7 +117,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">SOTA Insights</span>
     </a>
   </div>
@@ -152,15 +128,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./insights.html" aria-current="page"> 
+    <a class="nav-link" href="../../../insights.html"> 
 <span class="menu-text">Insights</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -187,26 +163,48 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(6)</span></div><div class="category" data-category="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==">Probabity and Statistics <span class="quarto-category-count">(3)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#what-is-support-vector-machines-svms" id="toc-what-is-support-vector-machines-svms" class="nav-link active" data-scroll-target="#what-is-support-vector-machines-svms">What is Support Vector Machines (SVMs)</a></li>
+  <li><a href="#svm-code-implementation-using-python" id="toc-svm-code-implementation-using-python" class="nav-link" data-scroll-target="#svm-code-implementation-using-python">SVM Code Implementation using python</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Insights</h1>
-<p class="subtitle lead">Let’s explore state-of-the-art machine learning and artificial intelligence models!</p>
-</div>
+<h1 class="title">Support Vector Machine implementation from scratch with Python</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Machine Learning</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Anushka Dhiman </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 15, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -216,267 +214,137 @@ window.Quarto = {
 </header>
 
 
+<hr>
+<section id="what-is-support-vector-machines-svms" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-support-vector-machines-svms">What is Support Vector Machines (SVMs)</h2>
+<p>Support Vector Machines (SVMs) are a type of machine learning algorithm used for classification and regression analysis. In particular, linear SVMs are used for binary classification problems where the goal is to separate two classes by a hyperplane.</p>
+<p>The hyperplane is a line that divides the feature space into two regions. The SVM algorithm tries to find the hyperplane that maximizes the margin, which is the distance between the hyperplane and the closest points from each class. The points closest to the hyperplane are called support vectors and play a crucial role in the algorithm’s optimization process.</p>
+<p>In linear SVMs, the hyperplane is defined by a linear function of the input features. The algorithm tries to find the optimal values of the coefficients of this function, called weights, that maximize the margin. This optimization problem can be formulated as a quadratic programming problem, which can be efficiently solved using standard optimization techniques.</p>
+<p>In addition to finding the optimal hyperplane, SVMs can also handle non-linearly separable data by using a kernel trick. This technique maps the input features into a higher-dimensional space, where they might become linearly separable. The SVM algorithm then finds the optimal hyperplane in this transformed feature space, which corresponds to a non-linear decision boundary in the original feature space.</p>
+<p>Linear SVMs have been widely used in many applications, including text classification, image classification, and bioinformatics. They have the advantage of being computationally efficient and easy to interpret. However, they may not perform well in highly non-linearly separable datasets, where non-linear SVMs may be a better choice.</p>
+</section>
+<section id="svm-code-implementation-using-python" class="level2">
+<h2 class="anchored" data-anchor-id="svm-code-implementation-using-python">SVM Code Implementation using python</h2>
+<p>Here’s an example implementation of a Support Vector Machine (SVM) classifier using gradient descent for optimization:</p>
+<p>Key Concepts:</p>
+<ul>
+<li><p>Margin: SVM aims to maximize the margin (distance between the hyperplane and the closest samples from each class).</p></li>
+<li><p>Regularization: The regularization parameter (lambda_param) helps control the trade-off between maximizing the margin and minimizing classification error.</p></li>
+<li><p>Gradient Descent: This is used to iteratively optimize the weights and bias.</p></li>
+</ul>
+<div id="cell-4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SVM:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate<span class="op">=</span><span class="fl">0.001</span>, lambda_param<span class="op">=</span><span class="fl">0.01</span>, n_iters<span class="op">=</span><span class="dv">1000</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lr <span class="op">=</span> learning_rate</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lambda_param <span class="op">=</span> lambda_param</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.n_iters <span class="op">=</span> n_iters</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.w <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, X, y):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        n_samples, n_features <span class="op">=</span> X.shape</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        y_ <span class="op">=</span> np.where(y <span class="op">&lt;=</span> <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.w <span class="op">=</span> np.zeros(n_features)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Gradient descent</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.n_iters):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> idx, x_i <span class="kw">in</span> <span class="bu">enumerate</span>(X):</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                condition <span class="op">=</span> y_[idx] <span class="op">*</span> (np.dot(x_i, <span class="va">self</span>.w) <span class="op">-</span> <span class="va">self</span>.b) <span class="op">&gt;=</span> <span class="dv">1</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> condition:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.w <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.lambda_param <span class="op">*</span> <span class="va">self</span>.w)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.w <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.lambda_param <span class="op">*</span> <span class="va">self</span>.w <span class="op">-</span> np.dot(x_i, y_[idx]))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                    <span class="va">self</span>.b <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> y_[idx]</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>, X):</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        linear_output <span class="op">=</span> np.dot(X, <span class="va">self</span>.w) <span class="op">-</span> <span class="va">self</span>.b</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.sign(linear_output)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming the SVM class is defined above and already imported</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate synthetic data with 2 classes</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> datasets.make_blobs(n_samples<span class="op">=</span><span class="dv">100</span>, centers<span class="op">=</span><span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.where(y <span class="op">==</span> <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)  <span class="co"># Convert labels to -1 and 1 instead of 0 and 1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into training and test sets (80% training, 20% testing)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate and train the SVM model</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>svm <span class="op">=</span> SVM()  <span class="co"># You can add parameters here like learning_rate, lambda_param, etc.</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>svm.fit(X_train, y_train)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions on the test set</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> svm.predict(X_test)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model by calculating accuracy</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 1.0</code></pre>
+</div>
+</div>
+<p>In this case, since the data is simple and linearly separable, the SVM classifier likely achieves a perfect accuracy of 100%. However, for more complex data, you may see lower accuracy depending on the dataset’s difficulty.</p>
+<p>Here’s key thing to note, we can fine-tune hyperparameters like learning rate (learning_rate), regularization strength (lambda_param), and the number of iterations (n_iters) to improve performance.</p>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<div id="cell-9" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the training data</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_train[:, <span class="dv">0</span>], X_train[:, <span class="dv">1</span>], c<span class="op">=</span>y_train, cmap<span class="op">=</span><span class="st">'bwr'</span>, marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span><span class="st">'Training data'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the decision boundary</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(np.linspace(X[:, <span class="dv">0</span>].<span class="bu">min</span>(), X[:, <span class="dv">0</span>].<span class="bu">max</span>(), <span class="dv">100</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                     np.linspace(X[:, <span class="dv">1</span>].<span class="bu">min</span>(), X[:, <span class="dv">1</span>].<span class="bu">max</span>(), <span class="dv">100</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the decision function values on the grid</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.dot(np.c_[xx.ravel(), yy.ravel()], svm.w) <span class="op">-</span> svm.b</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> Z.reshape(xx.shape)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the contour of the decision boundary</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.contour(xx, yy, Z, levels<span class="op">=</span>[<span class="dv">0</span>], linewidths<span class="op">=</span><span class="dv">2</span>, colors<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the support vectors (samples closest to the decision boundary)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>support_vectors <span class="op">=</span> np.where(np.<span class="bu">abs</span>(np.dot(X_train, svm.w) <span class="op">-</span> svm.b) <span class="op">&lt;=</span> <span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_train[support_vectors, <span class="dv">0</span>], X_train[support_vectors, <span class="dv">1</span>], c<span class="op">=</span><span class="st">'yellow'</span>, marker<span class="op">=</span><span class="st">'x'</span>, s<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="st">'Support Vectors'</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot with appropriate labels and legend</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Feature 1'</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Feature 2'</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'SVM Classifier with Decision Boundary and Support Vectors'</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="svm_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The resultant plot shows:</p>
+<ul>
+<li>Blue and Red dots representing the two different classes.</li>
+<li>A black line representing the decision boundary that separates the classes.</li>
+<li>Yellow ‘X’ markers for the support vectors, which are the critical data points closest to the decision boundary.</li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1737311400000" data-listing-file-modified-sort="1742127986850" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="869">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/MachineLearning/decision_tree.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/MachineLearning/decision_tree.html" class="no-external">
-<p class="card-img-top"><img src="insights\StatisticsandProbability\MachineLearning\decision_tree_files\figure-html\cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./insights/StatisticsandProbability/MachineLearning/decision_tree.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/MachineLearning/decision_tree.html" class="no-external">Decision Tree implementation from scratch with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/MachineLearning/decision_tree.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/MachineLearning/decision_tree.html" class="no-external">
-<div class="listing-date">
-Jan 20, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1737138600000" data-listing-file-modified-sort="1742126662802" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="516">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/MachineLearning/k_means.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/MachineLearning/k_means.html" class="no-external">
-<p class="card-img-top"><img src="insights\StatisticsandProbability\MachineLearning\kmean.png" alt="kmean"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./insights/StatisticsandProbability/MachineLearning/k_means.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/MachineLearning/k_means.html" class="no-external">K Mean implementation from scratch with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/MachineLearning/k_means.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/MachineLearning/k_means.html" class="no-external">
-<div class="listing-date">
-Jan 18, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1737052200000" data-listing-file-modified-sort="1742122538244" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1030">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/MachineLearning/knn.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/MachineLearning/knn.html" class="no-external">
-<p class="card-img-top"><img src="insights\StatisticsandProbability\MachineLearning\knn_files\figure-html\cell-6-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./insights/StatisticsandProbability/MachineLearning/knn.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/MachineLearning/knn.html" class="no-external">K-Nearest implementation from scratch with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/MachineLearning/knn.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/MachineLearning/knn.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="TWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1736879400000" data-listing-file-modified-sort="1742121353011" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="424">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/MachineLearning/svm.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/MachineLearning/svm.html" class="no-external">
-<p class="card-img-top"><img src="insights\StatisticsandProbability\MachineLearning\svm_files\figure-html\cell-4-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./insights/StatisticsandProbability/MachineLearning/svm.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/MachineLearning/svm.html" class="no-external">Support Vector Machine implementation from scratch with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/MachineLearning/svm.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/MachineLearning/svm.html" class="no-external">
-<div class="listing-date">
-Jan 15, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="TWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1736793000000" data-listing-file-modified-sort="1742118636846" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="468">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/MachineLearning/logistic_regression.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/MachineLearning/logistic_regression.html" class="no-external">
-<p class="card-img-top"><img src="insights\StatisticsandProbability\MachineLearning\logistic_regression_files\figure-html\cell-6-output-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./insights/StatisticsandProbability/MachineLearning/logistic_regression.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/MachineLearning/logistic_regression.html" class="no-external">Logistic Regression implementation from scratch with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/MachineLearning/logistic_regression.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/MachineLearning/logistic_regression.html" class="no-external">
-<div class="listing-date">
-Jan 14, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="TWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1736706600000" data-listing-file-modified-sort="1742115830720" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="844">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/MachineLearning/linear_regression.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/MachineLearning/linear_regression.html" class="no-external">
-<p class="card-img-top"><img src="insights\StatisticsandProbability\MachineLearning\lineEquation.png" alt="lineEquation"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./insights/StatisticsandProbability/MachineLearning/linear_regression.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/MachineLearning/linear_regression.html" class="no-external">Linear Regression implementation from scratch with Python</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/MachineLearning/linear_regression.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/MachineLearning/linear_regression.html" class="no-external">
-<div class="listing-date">
-Jan 13, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==" data-listing-date-sort="1736533800000" data-listing-file-modified-sort="1741756138665" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1729">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external">
-<p><img loading="lazy" src="./insights/StatisticsandProbability/bayes.png" class="thumbnail-image"></p>
-</a><p><a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external">Conditional Probability and Bayes Theorem</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/ConditionalProb_BayesTheorem.html" class="no-external">
-<div class="listing-date">
-Jan 11, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==" data-listing-date-sort="1736361000000" data-listing-file-modified-sort="1741756055042" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1214">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/Probability.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/Probability.html" class="no-external">
-<p><img loading="lazy" src="./insights/StatisticsandProbability/dice.jpg" class="thumbnail-image"></p>
-</a><p><a href="./insights/StatisticsandProbability/Probability.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/Probability.html" class="no-external">Probability</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/Probability.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/Probability.html" class="no-external">
-<div class="listing-date">
-Jan 9, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="UHJvYmFiaXR5JTIwYW5kJTIwU3RhdGlzdGljcw==" data-listing-date-sort="1736188200000" data-listing-file-modified-sort="1741604172192" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1102">
-<div class="thumbnail">
-<p><a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external"></a></p><a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external">
-<p><img loading="lazy" src="./insights/StatisticsandProbability/permandcomb.jpg" class="thumbnail-image"></p>
-</a><p><a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external">Permutation and Combination</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./insights/StatisticsandProbability/PermutationandCombination.html" class="no-external">
-<div class="listing-date">
-Jan 7, 2025
-</div>
-<div class="listing-author">
-Anushka Dhiman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1063,5 +931,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
